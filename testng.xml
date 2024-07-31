@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyTestSuite" parallel="false">
+    <test name="e2eTest">
+        <classes>
+            <class name="androidTest.e2eTest">
+                <methods>
+                    <include name="setup"/>
+                    <include name="login"/>
+                    <include name="addMedication"/>
+                    <include name="setMedReminder"/> 
+                    <include name="ValidateReminderSet"/>
+                    <include name="logSymptom"/>
+                    <include name="ValidateSymptomsLog"/>
+                    <include name="logProcedure"/>
+                    <include name="ValidateProcedureLog"/>
+                    <include name="ValidateInitialAverageSleepValue"/>
+                    <include name="LogSleep"/>
+                    <include name="VerifySleepLog"/>
+                    <include name="ValidateAverageSleepTrackerFunctionality"/>
+                    
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

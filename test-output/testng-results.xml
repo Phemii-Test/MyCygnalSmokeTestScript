@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="7" passed="6" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-07-31T02:26:48 WAT" name="Default suite" finished-at="2024-07-31T02:28:21 WAT" duration-ms="92813">
+    <groups>
+    </groups>
+    <test started-at="2024-07-31T02:26:48 WAT" name="Default test" finished-at="2024-07-31T02:28:21 WAT" duration-ms="92813">
+      <class name="androidTest.Onboarding">
+        <test-method is-config="true" signature="Setup()[pri:0, instance:androidTest.Onboarding@2de56eb2]" started-at="2024-07-31T02:26:48 WAT" name="Setup" finished-at="2024-07-31T02:27:02 WAT" duration-ms="13184" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method signature="clickForwardButton()[pri:0, instance:androidTest.Onboarding@2de56eb2]" started-at="2024-07-31T02:27:02 WAT" name="clickForwardButton" finished-at="2024-07-31T02:27:07 WAT" duration-ms="5654" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clickForwardButton -->
+        <test-method signature="signUpForm()[pri:1, instance:androidTest.Onboarding@2de56eb2]" started-at="2024-07-31T02:27:07 WAT" name="signUpForm" finished-at="2024-07-31T02:27:28 WAT" duration-ms="20484" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signUpForm -->
+        <test-method signature="OTP()[pri:2, instance:androidTest.Onboarding@2de56eb2]" started-at="2024-07-31T02:27:28 WAT" name="OTP" finished-at="2024-07-31T02:27:39 WAT" duration-ms="11474" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OTP -->
+        <test-method signature="HealthAssessment()[pri:3, instance:androidTest.Onboarding@2de56eb2]" started-at="2024-07-31T02:27:39 WAT" name="HealthAssessment" finished-at="2024-07-31T02:28:06 WAT" duration-ms="26886" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- HealthAssessment -->
+        <test-method signature="verifyAssessmentCompleted()[pri:4, instance:androidTest.Onboarding@2de56eb2]" started-at="2024-07-31T02:28:06 WAT" name="verifyAssessmentCompleted" finished-at="2024-07-31T02:28:06 WAT" duration-ms="114" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [You have now completed the basic assessment section, please proceed to your dashboard] but found []]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [You have now completed the basic assessment section, please proceed to your dashboard] but found []
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at org.testng.Assert.assertEquals(Assert.java:666)
+at androidTest.Onboarding.verifyAssessmentCompleted(Onboarding.java:225)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAssessmentCompleted -->
+        <test-method signature="clickLearnYourCygnalBtn()[pri:5, instance:androidTest.Onboarding@2de56eb2]" started-at="2024-07-31T02:28:06 WAT" name="clickLearnYourCygnalBtn" finished-at="2024-07-31T02:28:12 WAT" duration-ms="5841" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clickLearnYourCygnalBtn -->
+        <test-method signature="deleteAccount()[pri:7, instance:androidTest.Onboarding@2de56eb2]" started-at="2024-07-31T02:28:12 WAT" name="deleteAccount" finished-at="2024-07-31T02:28:21 WAT" duration-ms="9075" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteAccount -->
+      </class> <!-- androidTest.Onboarding -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
