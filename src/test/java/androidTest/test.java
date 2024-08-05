@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class test {
 
-	static Scanner input=new Scanner(System.in);
+	static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
 //		int number= 0;
@@ -36,43 +36,37 @@ public class test {
 //	for(int i=0;i<5;i++) {
 //		System.out.println("value of i is equal:"+i);
 //	}
-	
-	/*int house= 12;
-	int i=0;
-	if(i<house) {
-		System.out.println("we have the house");
-	}
-	else {
-		System.out.println("no house");
-	}
-	
-	
-	System.out.println("I want to type my age:");
-	int age=input.nextInt();
 
-	while(age !=5) {
-	age=input.nextInt();
-	
-	System.out.println("My age is:" );*/
-	
-	
-	
+		/*
+		 * int house= 12; int i=0; if(i<house) {
+		 * System.out.println("we have the house"); } else {
+		 * System.out.println("no house"); }
+		 * 
+		 * 
+		 * System.out.println("I want to type my age:"); int age=input.nextInt();
+		 * 
+		 * while(age !=5) { age=input.nextInt();
+		 * 
+		 * System.out.println("My age is:" );
+		 */
+
 //	public static void Second() {
 
-	/*
-	System.out.println("I want to type my name:");
-	
-	String name=input.nextLine();
-	
-	System.out.println("My name is:"+ name);*/
-	
-	int[] values = {1,2,3,4,5};
-	
-	for(int i=0; i<values.length; i++) {
-		System.out.println(values[i]);
-		
-	}
-	
+		/*
+		 * System.out.println("I want to type my name:");
+		 * 
+		 * String name=input.nextLine();
+		 * 
+		 * System.out.println("My name is:"+ name);
+		 */
+
+		int[] values = { 1, 2, 3, 4, 5 };
+
+		for (int i = 0; i < values.length; i++) {
+			System.out.println(values[i]);
+
+		}
+
 	}
 
 }

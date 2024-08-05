@@ -19,7 +19,8 @@ public class addMedicationObjectFactory {
 	public addMedicationObjectFactory(AndroidDriver driver) {
 		this.driver = driver;
 	}
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 	private By selectActionsButton = AppiumBy.accessibilityId("Select Actions Button");
 	private By addMedicationsButton = AppiumBy.accessibilityId("Add Medications");
@@ -93,7 +94,7 @@ public class addMedicationObjectFactory {
 	}
 
 	public boolean isMedicationAdded() throws InterruptedException {
-            Thread.sleep(5000);
+		Thread.sleep(5000);
 		return driver.findElement(successIcon).isDisplayed();
 	}
 

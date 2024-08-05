@@ -41,6 +41,7 @@ public class rapidTest {
 		}
 
 	}
+
 	@Test(priority = 0)
 
 	public void clickForwardButton() throws InterruptedException {
@@ -48,9 +49,9 @@ public class rapidTest {
 		driver.findElement(By.xpath("//android.widget.Button")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//android.widget.Button")).click();
-		
+
 		driver.findElement(AppiumBy.accessibilityId("Login")).click();
-		
+
 		WebElement emailElement = driver.findElement(By.xpath("//android.widget.ImageView[1]"));
 		emailElement.click();
 		emailElement.sendKeys("ohlufehmii@gmail.com");
@@ -58,37 +59,42 @@ public class rapidTest {
 		WebElement passwordElement = driver.findElements(By.className("android.widget.ImageView")).get(1);
 		passwordElement.click();
 		passwordElement.sendKeys("Hbon@1234");
-	
+
 		driver.findElement(AppiumBy.accessibilityId("Login")).click();
 		Thread.sleep(5000);
 	}
+
 	@Test(priority = 1)
 	public void FirstQuestioneer() throws InterruptedException {
 		driver.findElements(By.className("android.widget.ImageView")).get(4).click();
 		driver.findElement(AppiumBy.accessibilityId("Go to Assessment")).click();
 
 //Do you currently smoke response
-driver.findElements(By.className("android.widget.CheckBox")).get(1).click();
+		driver.findElements(By.className("android.widget.CheckBox")).get(1).click();
 		driver.findElement(AppiumBy.accessibilityId("Continue")).click();
-/*
-//For how many years have you smoked?
-		WebElement scroll = driver.findElements(By.className("android.view.View")).get(4);
-		((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
-				ImmutableMap.of("elementId", ((RemoteWebElement) scroll).getId(), "endX", 542, "endY", 618));
-
-//How many packs of cigarettes do you typically smoke in a day?
-		WebElement scroll2 = driver.findElements(By.className("android.view.View")).get(11);
-		((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
-				ImmutableMap.of("elementId", ((RemoteWebElement) scroll2).getId(), "endX", 324, "endY", 1881));
-
-//perform a Scroll upward.
-		
-		WebElement scrollUp = driver.findElements(By.className("android.view.View")).get(12);
-		((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
-				ImmutableMap.of("elementId", ((RemoteWebElement) scrollUp).getId(), "endX", 561, "endY", 660));
-
-		driver.findElement(AppiumBy.accessibilityId("Continue")).click();
-*/
+		/*
+		 * //For how many years have you smoked? WebElement scroll =
+		 * driver.findElements(By.className("android.view.View")).get(4);
+		 * ((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
+		 * ImmutableMap.of("elementId", ((RemoteWebElement) scroll).getId(), "endX",
+		 * 542, "endY", 618));
+		 * 
+		 * //How many packs of cigarettes do you typically smoke in a day? WebElement
+		 * scroll2 = driver.findElements(By.className("android.view.View")).get(11);
+		 * ((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
+		 * ImmutableMap.of("elementId", ((RemoteWebElement) scroll2).getId(), "endX",
+		 * 324, "endY", 1881));
+		 * 
+		 * //perform a Scroll upward.
+		 * 
+		 * WebElement scrollUp =
+		 * driver.findElements(By.className("android.view.View")).get(12);
+		 * ((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
+		 * ImmutableMap.of("elementId", ((RemoteWebElement) scrollUp).getId(), "endX",
+		 * 561, "endY", 660));
+		 * 
+		 * driver.findElement(AppiumBy.accessibilityId("Continue")).click();
+		 */
 //Have you smoked cigarettes in the past?
 		driver.findElements(By.className("android.widget.CheckBox")).get(0).click();
 		driver.findElement(AppiumBy.accessibilityId("Continue")).click();
@@ -97,12 +103,11 @@ driver.findElements(By.className("android.widget.CheckBox")).get(1).click();
 		WebElement scroll3 = driver.findElements(By.className("android.view.View")).get(4);
 		((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
 				ImmutableMap.of("elementId", ((RemoteWebElement) scroll3).getId(), "endX", 542, "endY", 618));
-		
-		//perform a Scroll upward.
-				WebElement scrollUp2 = driver.findElements(By.className("android.view.View")).get(12);
-				((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
-						ImmutableMap.of("elementId", ((RemoteWebElement) scrollUp2).getId(), "endX", 561, "endY", 660));
 
+		// perform a Scroll upward.
+		WebElement scrollUp2 = driver.findElements(By.className("android.view.View")).get(12);
+		((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
+				ImmutableMap.of("elementId", ((RemoteWebElement) scrollUp2).getId(), "endX", 561, "endY", 660));
 
 //How many packs of cigarettes do you typically smoke in a day?
 		WebElement scroll4 = driver.findElements(By.className("android.view.View")).get(11);
@@ -118,7 +123,7 @@ driver.findElements(By.className("android.widget.CheckBox")).get(1).click();
 //click the vaccines that have been taken.
 		driver.findElements(By.className("android.view.View")).get(3).click();
 		driver.findElements(By.className("android.view.View")).get(5).click();
-		WebElement scroll= driver.findElements(By.className("android.view.View")).get(7);
+		WebElement scroll = driver.findElements(By.className("android.view.View")).get(7);
 		scroll.click();
 
 //scroll up and click the continue button
@@ -138,14 +143,15 @@ driver.findElements(By.className("android.widget.CheckBox")).get(1).click();
 
 	}
 	/*
-//Validate that the questioneer filled was successful.
-	@Test(priority = 3)
-
-		public boolean IsRecoDashoardWelcomeDisplayed () throws InterruptedException {
-			Thread.sleep(5000);
-		return driver.findElement(AppiumBy.accessibilityId("👋\\nWe are so glad you are\\ntaking steps to own your\\nhealth\\nReview each category below and learn how to live your most healthy life.\\n\\nYou may update your information on the dashboard at any time to keep the recommendations current"))
-				.isDisplayed();
-	}*/
+	 * //Validate that the questioneer filled was successful.
+	 * 
+	 * @Test(priority = 3)
+	 * 
+	 * public boolean IsRecoDashoardWelcomeDisplayed () throws InterruptedException
+	 * { Thread.sleep(5000); return driver.findElement(AppiumBy.
+	 * accessibilityId("👋\\nWe are so glad you are\\ntaking steps to own your\\nhealth\\nReview each category below and learn how to live your most healthy life.\\n\\nYou may update your information on the dashboard at any time to keep the recommendations current"
+	 * )) .isDisplayed(); }
+	 */
 
 	@Test(priority = 3)
 	public void checkRecommendations() {
@@ -157,6 +163,5 @@ driver.findElements(By.className("android.widget.CheckBox")).get(1).click();
 		Assert.assertTrue(SecondRecommendation);
 
 	}
-	
-	}
 
+}

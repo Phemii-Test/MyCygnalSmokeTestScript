@@ -27,14 +27,13 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class AddHeartRatePageObjectFactory {
 
-	private static  AppiumDriver driver;
+	private static AppiumDriver driver;
 	public static int initialHeartRate;
 	public static int updatedHeartRate;
 
 	public AddHeartRatePageObjectFactory(AndroidDriver driver) {
 		this.driver = driver;
 	}
-	
 
 	private By heartRateIcon = AppiumBy.accessibilityId("Heart Rate icon");
 	private By logNewHaertRateButton = AppiumBy.accessibilityId("Add new heart rate record");
@@ -49,12 +48,12 @@ public class AddHeartRatePageObjectFactory {
 	private By viewHeartRateButton = AppiumBy.accessibilityId("View Heart Rate");
 	private By commonElements3 = By.xpath("//android.widget.Button");
 
+	public void clickheartRateIcon() throws InterruptedException {
+		// click the heart rate button from the dashboard.
+		driver.findElement(heartRateIcon).click();
+	}
 
-public void clickheartRateIcon() throws InterruptedException {
-	// click the heart rate button from the dashboard.
-	driver.findElement(heartRateIcon).click();
-}
-	@Test(priority=7)
+	@Test(priority = 7)
 
 	public void checkInitialHeartRateValue() {
 		WebElement InitialHeartRateElement = driver.findElements(commonElements4).get(4);
@@ -66,26 +65,30 @@ public void clickheartRateIcon() throws InterruptedException {
 		}
 
 	}
-	@Test(priority=8)
 
-public void clickAddNewHeartrateButton() throws InterruptedException	{
-	driver.findElement(logNewHaertRateButton).click();
-	Thread.sleep(5000);
+	@Test(priority = 8)
+
+	public void clickAddNewHeartrateButton() throws InterruptedException {
+		driver.findElement(logNewHaertRateButton).click();
+		Thread.sleep(5000);
 	}
-	@Test(priority=9)
 
-public void recordBeatPerMinute() {
+	@Test(priority = 9)
+
+	public void recordBeatPerMinute() {
 		((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
 //		    	    "elementId", ((RemoteWebElement) bpm).getId(),
 				"startX", 870, "startY", 1175, "endX", 557, "endY", 1192));
 	}
-	@Test(priority=10)
+
+	@Test(priority = 10)
 
 	private void slideGesture(RemoteWebDriver driver2, WebElement bpm, int i, int j, int k, int l, int m) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	@Test(priority=11)
+
+	@Test(priority = 11)
 
 	public void addDate() {
 
@@ -93,7 +96,8 @@ public void recordBeatPerMinute() {
 //			driver.findElement(AppiumBy.accessibilityId("1, Monday, July 1, 2024")).click();
 		driver.findElement(okButton).click();
 	}
-	@Test(priority=12)
+
+	@Test(priority = 12)
 
 	public void addTime() {
 		WebElement setTime = driver.findElements(commonElements1).get(5);
@@ -109,12 +113,14 @@ public void recordBeatPerMinute() {
 		((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
 				ImmutableMap.of("elementId", ((RemoteWebElement) setTime).getId(), "endX", 538, "endY", 530));
 	}
-	@Test(priority=13)
+
+	@Test(priority = 13)
 
 	public void tickOnMedication() {
 		driver.findElement(onMedication).click();
 	}
-	@Test(priority=14)
+
+	@Test(priority = 14)
 
 	public void clickRecordHeartrateButton() {
 
@@ -128,12 +134,14 @@ public void recordBeatPerMinute() {
 		return driver.findElement(SuccessIcon).isDisplayed();
 
 	}
-	@Test(priority=16)
+
+	@Test(priority = 16)
 
 	public boolean isRecordRelatedMedicationDisplayed() {
 		return driver.findElement(recordRelatedMedButton).isDisplayed();
 	}
-	@Test(priority=17)
+
+	@Test(priority = 17)
 
 	public void clickViewHeartRateButton() {
 		driver.findElement(viewHeartRateButton).click();
@@ -161,7 +169,8 @@ public void recordBeatPerMinute() {
 
 //		    Click the back button to get back to the dashboard.
 	}
-	@Test(priority=19)
+
+	@Test(priority = 19)
 
 	public void clickBackButton() {
 		driver.findElement(commonElements3).click();

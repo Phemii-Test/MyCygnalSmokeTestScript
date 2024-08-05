@@ -31,6 +31,7 @@ public class loginObjectFactory {
 		Thread.sleep(5000);
 		driver.findElement(forwardButton).click();
 	}
+
 	public void clickForwardButton2() throws InterruptedException {
 		driver.findElement(forwardButton).click();
 	}

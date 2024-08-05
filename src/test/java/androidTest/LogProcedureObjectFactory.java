@@ -29,6 +29,7 @@ public class LogProcedureObjectFactory {
 		this.driver = driver;
 
 	}
+
 	private By procedureIcon = AppiumBy.accessibilityId("Procedures");
 	private By logNewProcedureButton = AppiumBy.accessibilityId("Log new procedure");
 	private By logProcedureButton = AppiumBy.accessibilityId("Log Procedure");
@@ -41,7 +42,7 @@ public class LogProcedureObjectFactory {
 	private By okButton = AppiumBy.accessibilityId("OK");
 	private By SuccessIcon = AppiumBy.accessibilityId("Success Icon");
 	private By logProcedurebutton = AppiumBy.accessibilityId("Log Procedure");
-	
+
 	public void clickSelectActionsButton() throws InterruptedException {
 		driver.findElement(procedureIcon).click();
 	}

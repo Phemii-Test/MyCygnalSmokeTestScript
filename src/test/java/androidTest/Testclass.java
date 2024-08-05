@@ -17,6 +17,7 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableMap;
+import com.mailslurp.clients.ApiException;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
@@ -33,6 +34,7 @@ public class Testclass {
 	private addBloodPressurePageObjectFactory BPRecordSteps;
 	private AddHeartRatePageObjectFactory HeartRateSteps;
 	private RecommendationSystemPageObjectFactory recommendationSteps;
+	private OnboardingObjectFactory onboardingSteps;
 
 	@BeforeTest
 	public void Setup() throws MalformedURLException {
@@ -48,8 +50,6 @@ public class Testclass {
 		cap.setCapability("automationName", "appium");
 		cap.setCapability("app", "/Users/olufemiomeiza/Downloads/app-release-9.apk");
 
-
-
 		try {
 			driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
 		} catch (MalformedURLException e) {
@@ -63,29 +63,56 @@ public class Testclass {
 		medicationSteps = new addMedicationObjectFactory(driver);
 		BPRecordSteps = new addBloodPressurePageObjectFactory(driver);
 		HeartRateSteps = new AddHeartRatePageObjectFactory(driver);
-		recommendationSteps= new RecommendationSystemPageObjectFactory(driver);
+		recommendationSteps = new RecommendationSystemPageObjectFactory(driver);
+		onboardingSteps = new OnboardingObjectFactory(driver);
 
 	}
+	/*
+	 * @Test(priority = 0) public void Login() throws InterruptedException {
+	 * loginStep.clickForwardButton(); loginStep.clickForwardButton();
+	 * loginStep.SelectLogin(); loginStep.enterLoginDetails("ohlufehmii@gmail.com",
+	 * "Hbon@1234"); loginStep.clickLoginButton();
+	 * 
+	 * }
+	 */
 
 	@Test(priority = 0)
-	public void Login() throws InterruptedException {
-		loginStep.clickForwardButton();
-		loginStep.clickForwardButton();
-//        loginPage.dragCheckBox();
-		loginStep.SelectLogin();
-		loginStep.enterLoginDetails("ohlufehmii@gmail.com", "Hbon@1234");
-		loginStep.clickLoginButton();
-
+	public void signUp() throws InterruptedException, ApiException {
+		onboardingSteps.Setup();
+		onboardingSteps.clickForwardButton();
+		onboardingSteps.fillFirstName();
+		onboardingSteps.fillLastName();
+		onboardingSteps.fillEmail();
+		onboardingSteps.fillMobileNum();
+		onboardingSteps.fillPassword();
+		onboardingSteps.completeSignUp();
+		onboardingSteps.fillOTP();
+		onboardingSteps.clickVerifyBtn();
 	}
 
 	@Test(priority = 1)
+	public void completeOnboardingAssessment() throws InterruptedException {
+		onboardingSteps.fillDOB();
+		onboardingSteps.selectGender();
+		onboardingSteps.setHeight();
+		onboardingSteps.setWeight();
+		onboardingSteps.selectSleepQuality();
+		onboardingSteps.skipBloodGroup();
+		onboardingSteps.skipSymptoms();
+		onboardingSteps.clickSubmitButton();
+		onboardingSteps.verifyAssessmentCompleted();
+		onboardingSteps.clickLearnYourCygnalBtn();
+		onboardingSteps.recommendationTabIsDisplayed();
+	}
+
+	@Test(priority = 2)
 	public void ValidateInitialAverageSleepValue() throws InterruptedException {
 		sleepRecordSteps.swipeToSleepIcon();
 		sleepRecordSteps.clickSleepIcon();
 		sleepRecordSteps.validateInitialAverageSleep();
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 3)
 	public void LogSleep() {
 		sleepRecordSteps.clickAddNewSleepButton();
 		sleepRecordSteps.addSleepTime();
@@ -94,20 +121,20 @@ public class Testclass {
 		sleepRecordSteps.clickRecordSleepButton();
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 4)
 	public void VerifySleepLog() throws InterruptedException {
 		sleepRecordSteps.isSleepRecorded();
 		sleepRecordSteps.isRecordMedbtnDispplayed();
 		sleepRecordSteps.navigateToSleeptracker();
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 5)
 	public void ValidateAverageSleepTrackerFunctionality() throws InterruptedException {
 		sleepRecordSteps.ValidateAverageSleepTrackerFunctionality();
 		sleepRecordSteps.backtoDashboardButton();
 	}
 
-	@Test(priority = 5)
+	@Test(priority = 6)
 	public void logProcedure() throws InterruptedException, IOException {
 		medicationSteps.clickSelectActionsButton();
 		procedureSteps.clicklogProcedureButton();
@@ -123,14 +150,14 @@ public class Testclass {
 
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 7)
 	public void ValidateProcedureLog() throws InterruptedException {
 		boolean isAdded = procedureSteps.isProcedureAdded();
 		Assert.assertTrue(isAdded);
 		symptomsSteps.backToDashboard();
 	}
 
-	@Test(priority = 7)
+	@Test(priority = 8)
 	public void addMedication() throws InterruptedException {
 		medicationSteps.clickSelectActionsButton();
 		medicationSteps.clickAddMedicationsButton();
@@ -145,7 +172,7 @@ public class Testclass {
 		Assert.assertTrue(isAdded);
 	}
 
-	@Test(priority = 8)
+	@Test(priority = 9)
 	public void SetMedReminder() throws InterruptedException {
 		medicationSteps.viewMedicationButton();
 		medicationSteps.firstDoseStartTime();
@@ -159,7 +186,7 @@ public class Testclass {
 
 	}
 
-	@Test(priority = 9)
+	@Test(priority = 10)
 	public void ValidateReminderSet() throws InterruptedException {
 		boolean isAdded = medicationSteps.isMedicationAdded();
 		Assert.assertTrue(isAdded);
@@ -167,7 +194,7 @@ public class Testclass {
 		medicationSteps.backButton();
 	}
 
-	@Test(priority = 10)
+	@Test(priority = 11)
 	public void logSymptom() throws InterruptedException {
 		symptomsSteps.SelectActionsButton();
 		symptomsSteps.clickLogSymptomsButton();
@@ -182,7 +209,7 @@ public class Testclass {
 		symptomsSteps.clickLogSymptomsAgain();
 	}
 
-	@Test(priority = 11)
+	@Test(priority = 12)
 	public void ValidateSymptomsLog() throws InterruptedException {
 		boolean isAdded = symptomsSteps.isSymptomsAdded();
 		Assert.assertTrue(isAdded);
@@ -190,13 +217,13 @@ public class Testclass {
 
 	}
 
-	@Test(priority = 12)
+	@Test(priority = 13)
 	public void verifyInitialLatestBP() throws InterruptedException {
 		BPRecordSteps.clickBPIcon();
 		BPRecordSteps.verifyInitialLatestBPValue();
 	}
 
-	@Test(priority = 13)
+	@Test(priority = 14)
 	public void logBP() throws InterruptedException {
 		BPRecordSteps.clickAddNewBPButton();
 		BPRecordSteps.addSystolicValue();
@@ -207,20 +234,20 @@ public class Testclass {
 		BPRecordSteps.clickRecordBPButton();
 	}
 
-	@Test(priority = 14)
+	@Test(priority = 15)
 	public void verifyBPLog() throws InterruptedException {
 		BPRecordSteps.isBPRecorded();
 		BPRecordSteps.isRecordRelatedMedDisplayed();
 		BPRecordSteps.clickViewBPButton();
 	}
 
-	@Test(priority = 15)
+	@Test(priority = 16)
 	public void VerifyAverageBPChange() {
 		BPRecordSteps.VerifyLatestBPValueChange();
 		BPRecordSteps.pressBackButton();
 	}
 
-	@Test(priority = 16)
+	@Test(priority = 17)
 	public void verifyInitialHeartratevalue() throws InterruptedException {
 
 		HeartRateSteps.clickheartRateIcon();
@@ -228,7 +255,7 @@ public class Testclass {
 
 	}
 
-	@Test(priority = 17)
+	@Test(priority = 18)
 	public void logNewHeartRate() throws InterruptedException {
 		HeartRateSteps.clickAddNewHeartrateButton();
 		HeartRateSteps.recordBeatPerMinute();
@@ -238,20 +265,21 @@ public class Testclass {
 		HeartRateSteps.clickRecordHeartrateButton();
 	}
 
-	@Test(priority = 18)
+	@Test(priority = 19)
 	public void validateHeartRatelogged() {
 		HeartRateSteps.isHeartRateRecorded();
 		HeartRateSteps.isRecordRelatedMedicationDisplayed();
 	}
 
-	@Test(priority = 19)
+	@Test(priority = 20)
 	public void verifyLatestHeartrateLog() {
 		HeartRateSteps.clickViewHeartRateButton();
 		HeartRateSteps.VerifyUpdatedHeartRate();
 		HeartRateSteps.clickBackButton();
 	}
-	@Test (priority = 20)
-	public void startRecommendationAssessment() throws InterruptedException{
+
+	@Test(priority = 21)
+	public void startRecommendationAssessment() throws InterruptedException {
 		recommendationSteps.gotoAssessment();
 		recommendationSteps.firstQuestion();
 		recommendationSteps.thirdQuestion();
@@ -260,13 +288,19 @@ public class Testclass {
 		recommendationSteps.sixthQuestion();
 
 	}
-	
-	@Test(priority = 21)
-		public void verifyRecommendation() {
+
+	@Test(priority = 22)
+	public void verifyRecommendation() throws InterruptedException {
 		recommendationSteps.clickSeeRecommendationButton();
 		recommendationSteps.iscovid19VaccineDisplayed();
 	}
-	
+
+	@Test(priority = 23)
+	public void deleteAccount() throws InterruptedException {
+		onboardingSteps.deleteAccount();
+		onboardingSteps.welcomeBackTextIsDisplayed();
+	}
+
 	@AfterTest
 	public void QuitApp() {
 		driver.quit();

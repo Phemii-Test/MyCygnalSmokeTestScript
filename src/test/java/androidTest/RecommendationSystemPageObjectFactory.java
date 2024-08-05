@@ -73,15 +73,15 @@ public class RecommendationSystemPageObjectFactory {
 		WebElement scroll3 = driver.findElements(commonElements1).get(4);
 		((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
 				ImmutableMap.of("elementId", ((RemoteWebElement) scroll3).getId(), "endX", 542, "endY", 618));
-		
-		//perform a Scroll upward.
-				WebElement scrollUp2 = driver.findElements(commonElements1).get(12);
-				((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
-						ImmutableMap.of("elementId", ((RemoteWebElement) scrollUp2).getId(), "endX", 561, "endY", 660));
 
-				WebElement scroll4 = driver.findElements(commonElements1).get(11);
-				((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
-						ImmutableMap.of("elementId", ((RemoteWebElement) scroll4).getId(), "endX", 544, "endY", 1687));
+		// perform a Scroll upward.
+		WebElement scrollUp2 = driver.findElements(commonElements1).get(12);
+		((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
+				ImmutableMap.of("elementId", ((RemoteWebElement) scrollUp2).getId(), "endX", 561, "endY", 660));
+
+		WebElement scroll4 = driver.findElements(commonElements1).get(11);
+		((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
+				ImmutableMap.of("elementId", ((RemoteWebElement) scroll4).getId(), "endX", 544, "endY", 1687));
 
 		driver.findElement(continueButton).click();
 
@@ -110,11 +110,10 @@ public class RecommendationSystemPageObjectFactory {
 
 //Click the submit button
 		driver.findElement(submitButton).click();
-
-		driver.wait(5000);
 	}
 
-	public boolean isRecommendationWelcomeNotedDisplayed() {
+	public boolean isRecommendationWelcomeNotedDisplayed() throws InterruptedException {
+		driver.wait(5000);
 		return driver.findElement(recommendationWelcomeElement).isDisplayed();
 	}
 
@@ -127,9 +126,14 @@ public class RecommendationSystemPageObjectFactory {
 		return driver.findElement(HPVRecommendation).isDisplayed();
 	}
 
-	public boolean iscovid19VaccineDisplayed() {
+	public boolean iscovid19VaccineDisplayed() throws InterruptedException {
+		Thread.sleep(5000);
 
 		return driver.findElement(covid19Recommendation).isDisplayed();
-
 	}
+
+	public void clickHomeButton() {
+		driver.findElements(recommendationIcon).get(4).click();
+	}
+
 }
