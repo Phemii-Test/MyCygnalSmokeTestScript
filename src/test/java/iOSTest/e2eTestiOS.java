@@ -204,5 +204,12 @@ public void deleteAccount() throws InterruptedException 	{
 		
 	}
 	
+	@AfterTest
+	public void quitApp() throws InterruptedException {
+		Thread.sleep(5000);
+		driver.quit();
+		
+	}
+	
 	
 }
