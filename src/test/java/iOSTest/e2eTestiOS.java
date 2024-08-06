@@ -17,6 +17,10 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableMap;
+import com.mailslurp.clients.ApiClient;
+import com.mailslurp.clients.ApiException;
+import com.mailslurp.clients.Configuration;
+import com.mailslurp.models.InboxDto;
 
 import androidTest.SleepTrackerPageObjectFactory;
 import io.appium.java_client.AppiumBy;
@@ -30,12 +34,18 @@ import io.appium.java_client.ios.IOSDriver;
 public class e2eTestiOS {
 
 	AppiumDriver driver;
-	public static String averageHeartRate;
-	public static String updatedAverageHeartRate;
-	public static String initialaverageBP;
-	public static String updatedAverageBP;
-	private static String initialAverageSleep;
-	private static String finalAverageSleep;
+	InboxDto inbox;
+	String otp;
+	ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+	
+	private AddMedicationiOS  addMedSteps;
+	private iOS_Onboarding   onboardingSteps;
+	private LogSymptomsiOS   symptomSteps;
+	private LogProcedureiOS  procedureSteps;
+	private log_HeartRate_iOS heartRateSteps;
+	private LogBPiOS          bpSteps;
+	private LogSleep         logSleepSteps;
 
 	@BeforeTest
 	public void Setup() throws MalformedURLException {
@@ -57,88 +67,142 @@ public class e2eTestiOS {
 			e.printStackTrace();
 		}
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		addMedSteps = new AddMedicationiOS(driver);
+		onboardingSteps = new iOS_Onboarding(driver);
+		symptomSteps = new LogSymptomsiOS(driver);
+		procedureSteps = new LogProcedureiOS(driver);
+		heartRateSteps = new log_HeartRate_iOS(driver);
+		bpSteps = new LogBPiOS(driver);
+		logSleepSteps = new LogSleep(driver);
+		
+	}
+	
+	@Test(priority=0)
+	
+	public void beforeTestSetup() throws MalformedURLException, ApiException {
+		onboardingSteps.Setup();
 	}
 
-	@Test(priority = 0)
-	public void Login() throws InterruptedException {
-		WebElement nextBtn = driver.findElement(By.className("XCUIElementTypeButton"));
-		nextBtn.click();
-		Thread.sleep(2000);
-
-		driver.findElement(AppiumBy.accessibilityId("Next page button")).click();
-
-		driver.findElement(AppiumBy.accessibilityId("Login")).click();
-
-		WebElement emailField = driver.findElements(By.className("XCUIElementTypeTextField")).get(0);
-		emailField.click();
-		emailField.sendKeys("Ohlufehmii@gmail.com");
-
-		WebElement passwordField = driver.findElements(By.className("XCUIElementTypeTextField")).get(2);
-		passwordField.click();
-		passwordField.sendKeys("Hbon@1234");
-
-		driver.findElement(AppiumBy.accessibilityId("Login")).click();
+	@Test(priority=1)
+public void signUp() throws InterruptedException, ApiException	{
+		onboardingSteps.clickForwardButton();
+		onboardingSteps.enterName("Test", "Account");
+		onboardingSteps.enterEmail();
+		onboardingSteps.fillMobileNum("4565728287");
+		onboardingSteps.fillPassword("soAwesome@1234");
+		onboardingSteps.completeForm();
+		onboardingSteps.enterOTP();
 	}
 
-	@Test(priority = 1)
-	public void logsymptoms() throws InterruptedException {
-		driver.findElement(AppiumBy.accessibilityId("Select Actions Button")).click();
-		driver.findElement(AppiumBy.accessibilityId("Log Procedure")).click();
-//	    	procedure title
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(0).sendKeys("Ceaserial Session");
-
-//	    	procedure description
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(2).sendKeys("Delivery through operation");
-
-//	    	Health provider
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(4)
-				.sendKeys("Rev Fr, Burke Memorial Hospital");
-
-//	    	Procedure type
-		driver.findElement(AppiumBy.accessibilityId("Select type")).click();
-		driver.findElement(AppiumBy.accessibilityId("Procedure 2")).click();
-
-//	    	procedure preparation
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(6).sendKeys("Ultrasound scan");
-		driver.navigate().back();
-
-//	    	post procedure care.
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(8).sendKeys("Post procedure dressing.");
-		driver.findElement(AppiumBy.accessibilityId("Hide keyboard")).click();
-
-//			Upload file
-		driver.findElement(AppiumBy.accessibilityId("Select File")).click();
-		Thread.sleep(5000);
-		driver.findElements(By.className("XCUIElementTypeImage")).get(24).click();
-		Thread.sleep(3000);
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
-
-//			Set date
-		driver.findElements(By.className("XCUIElementTypeImage")).get(2).click();
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
-
-//			set time
-		driver.findElements(By.className("XCUIElementTypeImage")).get(4).click();
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
-
-//			click the log procedure button
-		driver.findElements(By.className("XCUIElementTypeButton")).get(3).click();
+	@Test(priority=2)
+public void onboardingAssessment() throws InterruptedException 	{
+		onboardingSteps.startAssessment();
+		onboardingSteps.selectDOB();
+		onboardingSteps.selectGender();
+		onboardingSteps.setHeight();
+		onboardingSteps.setWeight();
+		onboardingSteps.skipSleepBlooodGroupSymptoms();
+		onboardingSteps.submitAccessment();
+		onboardingSteps.accessHomeDashboard();
 
 	}
+	
+	
 
-	@Test(priority = 2)
-	public void ValidateProcedureLog() {
-//		 A checkmark icon is displayed.
-		boolean successIcon = driver.findElement(AppiumBy.accessibilityId("Success Icon")).isDisplayed();
-		Assert.assertTrue(successIcon);
+	@Test(priority=3)
+public void addMedication() throws InterruptedException	{
+		
+		addMedSteps.addMedication();
+		addMedSteps.addMedicationName("Lesinopril");
+		addMedSteps.addDosage("2");
+		addMedSteps.setFrequency();
+		addMedSteps.selectCategory();
+		addMedSteps.date();
+		addMedSteps.verifyMedicationAdded();	
+	}
+	
+	@Test(priority=4)
 
-//			Navigate to the dashboard
-		driver.findElement(AppiumBy.accessibilityId("Go to Dashboard")).click();
+public void setDosage() throws InterruptedException	{
+		
+		addMedSteps.addFirstDoseTime();
+		addMedSteps.addSecondDoseTime();
+		addMedSteps.addThirdDoseTime();
+		addMedSteps.completeReminderSetup();
+		addMedSteps.ValidateReminderSet();
+		addMedSteps.gotoMedDashboard();
+	}
+	
+	@Test(priority = 5)
+	public void logSymptoms() throws InterruptedException {
+		symptomSteps.symptomName("Headache");
+		symptomSteps.symptomsSeverity();
+		symptomSteps.symptomsDescription();
+		symptomSteps.Frequency();
+		symptomSteps.Triggers("Stress");
+		symptomSteps.alleviatingFactors("Paracetamol");
+		symptomSteps.setDateAndTime();
+		symptomSteps.ValidateSymptomLog();
+	}
+	
+	@Test(priority=6)
+	public void logProcedure() {
+		procedureSteps.startProcedureLog();
+		procedureSteps.proceduretitle("Ceasarial Session");
+		procedureSteps.procedureDescription("delivery through procedure");
+		procedureSteps.healthProvider("Rev Fr Burke, Memorial clinic");
+		procedureSteps.procedureType();
+		procedureSteps.procedurePrep("Antenatal");
+		procedureSteps.procedureCare("frequent checkup");
+		procedureSteps.dateAndTime();
+		procedureSteps.ValidateProcedureLog();
+		procedureSteps.returnHome();
+	}
+	
+	@Test(priority=7)
+	 public void logHeartRate() throws InterruptedException {
+		
+		heartRateSteps.beginHeartRatelog();
+		heartRateSteps.setHeartRateValue();
+		heartRateSteps.scrollUp();
+		heartRateSteps.setDateAndtime();
+		heartRateSteps.recordHeartRate();
+		heartRateSteps.verifyBPLog();
+		heartRateSteps.relatedMedIsDisplayed();
+		heartRateSteps.viewHeartRateDashboard();
+	}
+	
+	@Test(priority=8)
+	public void logBP() throws InterruptedException {
+		bpSteps.beginBPLog();
+		bpSteps.systolicBP();
+		bpSteps.scrollUp();
+		bpSteps.diastolicLog();
+		bpSteps.setDateAndTime();
+		bpSteps.recordBP();
+		bpSteps.verifyBPLog();
+		bpSteps.isRecordMedButtonDisplayed();
+		bpSteps.viewBPRecord();
 	}
 
-	@AfterTest
-	public void quitApp() {
-		driver.quit();
+	@Test(priority=9)
+	public void logSleep() throws InterruptedException {
+		logSleepSteps.startLoggingSleep();
+		logSleepSteps.addSleepTime();
+		logSleepSteps.sleepQuality();
+		logSleepSteps.recordSleep();
+		logSleepSteps.validateSleepLog();
+		logSleepSteps.backToHomescreen();
+		
 	}
-
+	@Test(priority = 10)
+public void deleteAccount() throws InterruptedException 	{
+		onboardingSteps.clickProfilePage();
+		onboardingSteps.clickCloseAndDeleteButton();
+		onboardingSteps.verifyDeleteAccount();
+		
+	}
+	
+	
 }

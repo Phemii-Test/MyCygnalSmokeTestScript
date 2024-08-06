@@ -21,58 +21,25 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class LogSleep {
 
-	AppiumDriver driver;
-
-	@BeforeTest
-	public void Setup() throws MalformedURLException {
-
-		DesiredCapabilities cap = new DesiredCapabilities();
-
-		cap.setCapability("platformName", "iOS");
-		cap.setCapability("automationName", "XCUITest");
-		cap.setCapability("udid", "293CB621-315F-4285-922D-9DD8D1F45AC5");
-		cap.setCapability("bundleId", "com.mycygnal.mycygnal");
-		cap.setCapability("deviceName", "iPhone 15");
-		cap.setCapability("platformVersion", "17.5");
-//	        cap.setCapability("usePreinstalledWDA", "true");
-		cap.setCapability("app", "/Users/olufemiomeiza/Downloads/Runner-6.app");
-
-		try {
-			driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	private AppiumDriver driver;
+	
+	public LogSleep(AppiumDriver driver) {
+		
+		this.driver= driver;
 	}
+	private By sleepIcon = AppiumBy.accessibilityId("Sleep icon");
+	private By newSleepButton = AppiumBy.accessibilityId("Add new sleep record");
+	private By commonElement1 = By.className("XCUIElementTypeImage");
+	private By changeClockView = AppiumBy.accessibilityId("Switch to text input mode");
+	private By hourOption = AppiumBy.accessibilityId("Hour");
+	private By minuteOption = AppiumBy.accessibilityId("Minute");
+	private By am = AppiumBy.accessibilityId("AM");
+	private By okButton = AppiumBy.accessibilityId("OK");
+	private By recordSleep = By.xpath("//XCUIElementTypeButton[@name='Record Sleep']");
+	private By checkMark = AppiumBy.accessibilityId("Success Icon");
+	private By viewSleepRecord = AppiumBy.accessibilityId("View Sleep Tracker");
+	private By commonElement2 = By.className("XCUIElementTypeButton");
 
-	@Test(priority = 0)
-	public void Login() throws InterruptedException {
-		WebElement nextBtn = driver.findElement(By.className("XCUIElementTypeButton"));
-		nextBtn.click();
-		Thread.sleep(2000);
-
-		WebElement nextBtn1 = driver.findElement(By.className("XCUIElementTypeButton"));
-		nextBtn1.click();
-
-		driver.findElement(AppiumBy.accessibilityId("Login")).click();
-
-		WebElement emailField = driver.findElements(By.className("XCUIElementTypeTextField")).get(0);
-		emailField.click();
-		emailField.sendKeys("Ohlufehmii@gmail.com");
-
-		WebElement passwordField = driver.findElements(By.className("XCUIElementTypeTextField")).get(2);
-		passwordField.click();
-		passwordField.sendKeys("Hbon@1234");
-
-		driver.findElement(AppiumBy.accessibilityId("Login")).click();
-
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-	}
 
 	@Test(priority = 1)
 	public void startLoggingSleep() throws InterruptedException {
@@ -95,41 +62,41 @@ public class LogSleep {
 		driver.perform(Collections.singletonList(swipe));
 		Thread.sleep(5000);
 
-		driver.findElement(AppiumBy.accessibilityId("Sleep icon")).click();
+		driver.findElement(sleepIcon).click();
 	}
 
 	@Test(priority = 2)
 	public void addSleepTime() {
 
-		driver.findElement(AppiumBy.accessibilityId("Add new sleep record")).click();
+		driver.findElement(newSleepButton).click();
 //	     Start Time
-		driver.findElements(By.className("XCUIElementTypeImage")).get(0).click();
-		driver.findElement(AppiumBy.accessibilityId("Switch to text input mode")).click();
-		WebElement hour = driver.findElement(AppiumBy.accessibilityId("Hour"));
+		driver.findElements(commonElement1).get(0).click();
+		driver.findElement(changeClockView).click();
+		WebElement hour = driver.findElement(hourOption);
 		hour.clear();
 		hour.sendKeys("12");
 
-		WebElement minute = driver.findElement(AppiumBy.accessibilityId("Minute"));
+		WebElement minute = driver.findElement(minuteOption);
 		minute.clear();
 		minute.sendKeys("00");
-		driver.findElement(AppiumBy.accessibilityId("AM")).click();
+		driver.findElement(am).click();
 
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+		driver.findElement(okButton).click();
 
 //				End time
-		driver.findElements(By.className("XCUIElementTypeImage")).get(2).click();
-		driver.findElement(AppiumBy.accessibilityId("Switch to text input mode")).click();
-		WebElement hour1 = driver.findElement(AppiumBy.accessibilityId("Hour"));
+		driver.findElements(commonElement1).get(2).click();
+		driver.findElement(changeClockView).click();
+		WebElement hour1 = driver.findElement(hourOption);
 		hour1.clear();
 		hour1.sendKeys("6");
 
-		WebElement minute1 = driver.findElement(AppiumBy.accessibilityId("Minute"));
+		WebElement minute1 = driver.findElement(minuteOption);
 		minute1.clear();
 		minute1.sendKeys("00");
 
-		driver.findElement(AppiumBy.accessibilityId("AM")).click();
+		driver.findElement(am).click();
 
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+		driver.findElement(okButton).click();
 
 	}
 
@@ -157,23 +124,21 @@ public class LogSleep {
 
 	@Test(priority = 4)
 	public void recordSleep() throws InterruptedException {
-		driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Record Sleep\"]")).click();
+		driver.findElement(recordSleep).click();
 		Thread.sleep(5000);
 	}
 
 	@Test(priority = 5)
-	public void validateSleepLog() {
+	public boolean validateSleepLog() {
+         return driver.findElement(checkMark).isDisplayed();
 
-		boolean checkMark = driver.findElement(AppiumBy.accessibilityId("Success Icon")).isDisplayed();
-		Assert.assertTrue(checkMark);
-		System.out.println("sleep logged succesfuly;" + checkMark);
-
-		driver.findElement(AppiumBy.accessibilityId("View Sleep Tracker")).click();
 	}
 
 	@Test(priority = 6)
 	public void backToHomescreen() {
-		driver.findElements(By.className("XCUIElementTypeButton")).get(1).click();
+		driver.findElement(viewSleepRecord).click();
+
+		driver.findElements(commonElement2).get(1).click();
 
 	}
 

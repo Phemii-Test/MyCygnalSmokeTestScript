@@ -12,111 +12,78 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSDriver;
 
 public class LogProcedureiOS {
 
-	IOSDriver driver;
+	private AppiumDriver driver;
+	
+	public LogProcedureiOS(AppiumDriver driver) {
+		this.driver= driver;
+	}
+	
+	private By selectActions = AppiumBy.accessibilityId("Select Actions Button");
+	private By logProcedureButton = AppiumBy.accessibilityId("Log Procedure");
+	private By commonElement1 = By.className("XCUIElementTypeTextField");
+	private By selectTypeButton = AppiumBy.accessibilityId("Select type");
+	private By procedureType2 = AppiumBy.accessibilityId("Procedure 2");
+	private By commonElement2 = By.className("XCUIElementTypeImage");
+	private By okButton = AppiumBy.accessibilityId("OK");
+	private By logProcedureBtn = By.xpath("//XCUIElementTypeButton[@name='Log Procedure']");
+	private By checkMark = AppiumBy.accessibilityId("Success Icon");
+	private By gotoDashboardButton = AppiumBy.accessibilityId("Go to Dashboard");
 
-	@BeforeTest
-	public void Setup() throws MalformedURLException {
 
-		DesiredCapabilities cap = new DesiredCapabilities();
 
-		cap.setCapability("platformName", "iOS");
-		cap.setCapability("automationName", "XCUITest");
-		cap.setCapability("udid", "293CB621-315F-4285-922D-9DD8D1F45AC5");
-		cap.setCapability("bundleId", "com.mycygnal.mycygnal");
-		cap.setCapability("deviceName", "iPad (10th generation)");
-		cap.setCapability("platformVersion", "17.5");
-//	        cap.setCapability("usePreinstalledWDA", "true");
-		cap.setCapability("app", "/Users/olufemiomeiza/Downloads/Runner-6.app");
-
-		try {
-			driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	public void startProcedureLog() {
+		driver.findElement(selectActions).click();
+		driver.findElement(logProcedureButton).click();
+	}
+	public void proceduretitle(String title) {
+		driver.findElements(commonElement1).get(0).sendKeys(title);
+	}
+	public void procedureDescription(String description) {
+		driver.findElements(commonElement1).get(2).sendKeys(description);
+	}
+	
+	public void healthProvider(String healthProvider) {
+		driver.findElements(commonElement1).get(4)
+				.sendKeys(healthProvider);
+	}
+	public void procedureType() {
+		driver.findElement(selectTypeButton).click();
+		driver.findElement(procedureType2).click();
+	}
+	public void procedurePrep(String prep) {
+		driver.findElements(commonElement1).get(6).sendKeys(prep);
+		driver.navigate().back();
+	}
+	public void procedureCare(String Care) {
+			driver.findElements(commonElement1).get(8).sendKeys(Care);
+		driver.navigate().back();
 	}
 
-	@Test(priority = 0)
-	public void Login() throws InterruptedException {
-		WebElement nextBtn = driver.findElement(By.className("XCUIElementTypeButton"));
-		nextBtn.click();
-		Thread.sleep(2000);
-
-		WebElement nextBtn1 = driver.findElement(By.className("XCUIElementTypeButton"));
-		nextBtn1.click();
-
-		driver.findElement(AppiumBy.accessibilityId("Login")).click();
-
-		WebElement emailField = driver.findElements(By.className("XCUIElementTypeTextField")).get(0);
-		emailField.click();
-		emailField.sendKeys("Ohlufehmii@gmail.com");
-
-		WebElement passwordField = driver.findElements(By.className("XCUIElementTypeTextField")).get(2);
-		passwordField.click();
-		passwordField.sendKeys("Hbon@1234");
-
-		driver.findElement(AppiumBy.accessibilityId("Login")).click();
-
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	@Test(priority = 1)
-	public void logsymptoms() throws InterruptedException {
-		driver.findElement(AppiumBy.accessibilityId("Select Actions Button")).click();
-		driver.findElement(AppiumBy.accessibilityId("Log Procedure")).click();
-//	    	procedure title
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(0).sendKeys("Ceaserial Session");
-
-//	    	procedure description
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(2).sendKeys("Delivery through operation");
-
-//	    	Health provider
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(4)
-				.sendKeys("Rev Fr, Burke Memorial Hospital");
-
-//	    	Procedure type
-		driver.findElement(AppiumBy.accessibilityId("Select type")).click();
-		driver.findElement(AppiumBy.accessibilityId("Procedure 2")).click();
-
-//	    	procedure preparation
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(6).sendKeys("Ultrasound scan");
-		driver.navigate().back();
-
-//	    	post procedure care.
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(8).sendKeys("Post procedure dressing.");
-		Thread.sleep(5000);
-		driver.navigate().back();
-
-//			Set date
-		driver.findElements(By.className("XCUIElementTypeImage")).get(2).click();
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+	public void dateAndTime() {
+		driver.findElements(commonElement2).get(2).click();
+		driver.findElement(okButton).click();
 
 //			set time
-		driver.findElements(By.className("XCUIElementTypeImage")).get(4).click();
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+		driver.findElements(commonElement2).get(4).click();
+		driver.findElement(okButton).click();
 
 //			click the log procedure button
-		driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Log Procedure\"]")).click();
+		driver.findElement(logProcedureBtn).click();
 
 	}
 
-	@Test(priority = 2)
-	public void ValidateProcedureLog() {
-//		 A checkmark icon is displayed.
-		boolean successIcon = driver.findElement(AppiumBy.accessibilityId("Success Icon")).isDisplayed();
-		Assert.assertTrue(successIcon);
+	public boolean ValidateProcedureLog() {
+		return driver.findElement(checkMark).isDisplayed();
 
-//			Navigate to the dashboard
-		driver.findElement(AppiumBy.accessibilityId("Go to Dashboard")).click();
 	}
+    
+	public void returnHome() {
+		driver.findElement(gotoDashboardButton).click();
 
+	}
 }
