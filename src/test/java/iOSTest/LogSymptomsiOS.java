@@ -24,69 +24,36 @@ import io.appium.java_client.ios.IOSDriver;
 
 public class LogSymptomsiOS {
 
-	IOSDriver driver;
+	private AppiumDriver driver;
 
-	@BeforeTest
-	public void Setup() throws MalformedURLException {
-
-		DesiredCapabilities cap = new DesiredCapabilities();
-
-		cap.setCapability("platformName", "iOS");
-		cap.setCapability("automationName", "XCUITest");
-		cap.setCapability("udid", "293CB621-315F-4285-922D-9DD8D1F45AC5");
-		cap.setCapability("bundleId", "com.mycygnal.mycygnal");
-		cap.setCapability("deviceName", "iPad (10th generation)");
-		cap.setCapability("platformVersion", "17.5");
-//	        cap.setCapability("usePreinstalledWDA", "true");
-		cap.setCapability("app", "/Users/olufemiomeiza/Downloads/Runner-6.app");
-
-		try {
-			driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	public LogSymptomsiOS(AppiumDriver driver) {
+		this.driver = driver;
 	}
 
-	@Test(priority = 0)
-	public void Login() throws InterruptedException {
-		WebElement nextBtn = driver.findElement(By.className("XCUIElementTypeButton"));
-		nextBtn.click();
-		Thread.sleep(2000);
+	private By commonElement1 = By.className("XCUIElementTypeTextField");
+	private By actionsButton = AppiumBy.accessibilityId("Select Actions Button");
+	private By logSymptomsButton = AppiumBy.accessibilityId("Log Symptoms");
+	private By frequencyButton = AppiumBy.accessibilityId("Select Frequency");
+	private By dailyOption = AppiumBy.accessibilityId("Daily");
+	private By commonAddButton1 = By.xpath("(//XCUIElementTypeButton[@name='Add'])[1]");
+	private By commonAddButton2 = By.xpath("(//XCUIElementTypeButton[@name='Add'])[2]");
+	private By commonElement2 = By.className("XCUIElementTypeImage");
+	private By okButton = AppiumBy.accessibilityId("OK");
+	private By switchMode = AppiumBy.accessibilityId("Switch to text input mode");
+	private By hourOption = AppiumBy.accessibilityId("Hour");
+	private By minuteOption = AppiumBy.accessibilityId("Minute");
+	private By logSymptomButton = By.xpath("//XCUIElementTypeButton[@name='Log Symptoms']");
+	private By symptomLoggedText = AppiumBy.accessibilityId("Symptom Logged");
+	private By gotoDashboardbutton = AppiumBy.accessibilityId("Go to Dashboard");
 
-		WebElement nextBtn1 = driver.findElement(By.className("XCUIElementTypeButton"));
-		nextBtn1.click();
-
-		driver.findElement(AppiumBy.accessibilityId("Login")).click();
-
-		WebElement emailField = driver.findElements(By.className("XCUIElementTypeTextField")).get(0);
-		emailField.click();
-		emailField.sendKeys("Ohlufehmii@gmail.com");
-
-		WebElement passwordField = driver.findElements(By.className("XCUIElementTypeTextField")).get(2);
-		passwordField.click();
-		passwordField.sendKeys("Hbon@1234");
-
-		driver.findElement(AppiumBy.accessibilityId("Login")).click();
-
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	@Test(priority = 1)
-	public void logsymptoms() throws InterruptedException {
-		driver.findElement(AppiumBy.accessibilityId("Select Actions Button")).click();
-		driver.findElement(AppiumBy.accessibilityId("Log Symptoms")).click();
+	public void symptomName(String symptomName) {
+		driver.findElement(actionsButton).click();
+		driver.findElement(logSymptomsButton).click();
 
 //	    	Enter Symptom name
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(2).sendKeys("Headache");
+		driver.findElements(commonElement1).get(2).sendKeys(symptomName);
 	}
 
-	@Test(priority = 2)
 	public void symptomsSeverity() {
 		int startX = 21;
 		int startY = 302;
@@ -107,66 +74,61 @@ public class LogSymptomsiOS {
 		driver.perform(Collections.singletonList(swipe));
 	}
 
-	@Test(priority = 3)
 	public void symptomsDescription() {
 //	    	Symptoms description
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(4).sendKeys("Slight headache");
+		driver.findElements(commonElement1).get(4).sendKeys("Slight headache");
 		driver.findElement(AppiumBy.accessibilityId("Return")).click();
 	}
 
-	@Test(priority = 4)
 	public void Frequency() {
 //	    	Set frequency
-		driver.findElement(AppiumBy.accessibilityId("Select Frequency")).click();
-		driver.findElement(AppiumBy.accessibilityId("Daily")).click();
+		driver.findElement(frequencyButton).click();
+		driver.findElement(dailyOption).click();
 	}
 
-	@Test(priority = 5)
-	public void Triggers() {
+	public void Triggers(String triggers) {
 //	    	Set triggers
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(0).sendKeys("stress");
-		driver.findElement(By.xpath("(//XCUIElementTypeButton[@name=\"Add\"])[1]")).click();
+		driver.findElements(commonElement1).get(0).sendKeys(triggers);
+		driver.findElement(commonAddButton1).click();
 //			driver.navigate().back();
 	}
 
-	@Test(priority = 6)
-	public void alleviatingFactors() throws InterruptedException {
+	public void alleviatingFactors(String AlleviatingFactor) {
 //	    	Set Alleviating factors
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(1).sendKeys("Paracetamol");
-		driver.findElement(By.xpath("(//XCUIElementTypeButton[@name=\"Add\"])[2]")).click();
+		driver.findElements(commonElement1).get(1).sendKeys(AlleviatingFactor);
+		driver.findElement(commonAddButton2).click();
 
 	}
 
-	@Test(priority = 7)
 	public void setDateAndTime() throws InterruptedException {
 //	    	Set date
-		driver.findElements(By.className("XCUIElementTypeImage")).get(3).click();
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+		driver.findElements(commonElement2).get(3).click();
+		driver.findElement(okButton).click();
 
 //	    	Set time
-		driver.findElements(By.className("XCUIElementTypeImage")).get(5).click();
-		driver.findElement(AppiumBy.accessibilityId("Switch to text input mode")).click();
-		WebElement hour = driver.findElement(AppiumBy.accessibilityId("Hour"));
+		driver.findElements(commonElement2).get(5).click();
+		driver.findElement(switchMode).click();
+		WebElement hour = driver.findElement(hourOption);
 		hour.clear();
 		hour.sendKeys("6");
-		WebElement Minute = driver.findElement(AppiumBy.accessibilityId("Minute"));
+		WebElement Minute = driver.findElement(minuteOption);
 		Minute.clear();
 		Minute.sendKeys("16");
 		driver.findElement(AppiumBy.accessibilityId("OK")).click();
 
-		driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Log Symptoms\"]")).click();
+		driver.findElement(logSymptomButton).click();
 
 		Thread.sleep(5000);
 	}
 
 	@Test(priority = 8)
-	public void ValidateProcedureLog() {
-		String actualText = driver.findElement(AppiumBy.accessibilityId("Symptom Logged")).getText();
+	public void ValidateSymptomLog() {
+		String actualText = driver.findElement(symptomLoggedText).getText();
 		String expectedText = "Symptom Logged";
 		Assert.assertEquals(actualText, expectedText);
 
 //			Navigate to the dashboard
-		driver.findElement(AppiumBy.accessibilityId("Go to Dashboard")).click();
+		driver.findElement(gotoDashboardbutton).click();
 	}
 
 }

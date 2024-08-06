@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="iOSTest.LogSymptomsiOS">
+      <class name="iOSTest.e2eTestiOS">
         <methods>
           <include name="Setup"/>
-          <include name="ValidateProcedureLog"/>
+          <include name="logBP"/>
+          <include name="deleteAccount"/>
         </methods>
-      </class> <!-- iOSTest.LogSymptomsiOS -->
+      </class> <!-- iOSTest.e2eTestiOS -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

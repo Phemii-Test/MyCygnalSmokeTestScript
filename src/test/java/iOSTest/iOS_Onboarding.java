@@ -36,17 +36,26 @@ import com.mailslurp.models.InboxDto;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 
 public class iOS_Onboarding {
 
-	AppiumDriver driver;
+	private AppiumDriver driver;
+	
 	InboxDto inbox;
 	String otp;
-
 	ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-	@BeforeTest
+	
+	public iOS_Onboarding(AppiumDriver driver) {
+		this.driver = driver;
+		
+	}
+	
+	
+
+	
 	public void Setup() throws MalformedURLException, ApiException {
 
 		defaultClient.setApiKey("f53a1da18ea522580705ca6199318dd7e8a14f30f7339900c8f900f7f95d4ad6");
@@ -55,63 +64,79 @@ public class iOS_Onboarding {
 		inbox = inboxControllerApi.createInboxWithDefaults();
 		assertNotNull(inbox, "Inbox creation failed. Inbox is null.");
 		assertEquals(inbox.getEmailAddress().contains("@mailslurp"), true, "Email address is not valid.");
-
-		DesiredCapabilities cap = new DesiredCapabilities();
-
-		cap.setCapability("platformName", "iOS");
-		cap.setCapability("automationName", "XCUITest");
-		cap.setCapability("udid", "293CB621-315F-4285-922D-9DD8D1F45AC5");
-		cap.setCapability("bundleId", "com.mycygnal.mycygnal");
-		cap.setCapability("deviceName", "iPad (10th generation)");
-		cap.setCapability("platformVersion", "17.5");
-		cap.setCapability("app", "/Users/olufemiomeiza/Downloads/Runner-6.app");
-
-		try {
-			driver = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		
 	}
 
-	@Test(priority = 1)
+	private By commonElement1 = By.className("XCUIElementTypeButton");
+	private By commonElement2 = By.className("XCUIElementTypeTextField");
+	private By commonElement3 = By.className("XCUIElementTypeSwitch");
+	private By doneButton = AppiumBy.accessibilityId("Done");
+	private By previousButton = AppiumBy.accessibilityId("Previous month");
+	private By yearElement = AppiumBy.accessibilityId("1, Tuesday, July 1, 2008");
+	private By continueButton = AppiumBy.accessibilityId("Continue");
+//	private By maleOption = AppiumBy.accessibilityId("Male");
+	private By skipButton = AppiumBy.accessibilityId("Skip");
+	private By submitButton = AppiumBy.accessibilityId("Submit");
+	private By learnYourCygnalbutton = AppiumBy.accessibilityId("Learn your Cygnal");
+	private By profilePage = AppiumBy.accessibilityId("Profile Page Navigation Icon");
+	private By closeAccountbutton = AppiumBy.accessibilityId("Close Account");
+	private By deleteAccountButton = AppiumBy.accessibilityId("Delete Account");
+	private By welcombackText = AppiumBy.accessibilityId("Welcome Back");
+	
+@Test(priority=0)
 	public void clickForwardButton() throws InterruptedException {
-		driver.findElement(By.className("XCUIElementTypeButton")).click();
+		driver.findElement(commonElement1).click();
 		Thread.sleep(5000);
-		driver.findElement(By.className("XCUIElementTypeButton")).click();
+		driver.findElement(commonElement1).click();
 		Thread.sleep(5000);
 	}
+@Test(priority=1)
 
-	@Test(priority = 2)
-	public void fillSignupForm() throws InterruptedException {
+	public void enterName(String firstName, String lastName) {
 //		FirstName field
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(0).sendKeys("Olufemi");
+		driver.findElements(commonElement2).get(0).sendKeys(firstName);
 
 //		Last name field
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(2).sendKeys("Hbon");
+		driver.findElements(commonElement2).get(2).sendKeys(lastName);
+	}
+@Test(priority=2)
 
+	public void enterEmail() {
 //		Email field
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(4).sendKeys(inbox.getEmailAddress());
+		driver.findElements(commonElement2).get(4).sendKeys(inbox.getEmailAddress());
+	}
+@Test(priority=3)
+
+	public void fillMobileNum(String mobileNumber) {
 
 //		enterMobile number
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(6).sendKeys("5177432388");
+		driver.findElements(commonElement2).get(6).sendKeys(mobileNumber);
+	}
+@Test(priority=4)
+
+	public void fillPassword(String password) {
 
 //	    fillPassword
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(7).sendKeys("SoAwesome@1234");
+		driver.findElements(commonElement2).get(7).sendKeys(password);
+	}
+@Test(priority=5)
+
+	public void completeForm() throws InterruptedException {
 
 //       checkT&C
-		driver.findElement(By.className("XCUIElementTypeSwitch")).click();
+		driver.findElement(commonElement3).click();
 
 //		bring down the keyboard.
-		driver.findElement(AppiumBy.accessibilityId("Done")).click();
+		driver.findElement(doneButton).click();
 
 //		clickSignup button
-		driver.findElements(By.className("XCUIElementTypeButton")).get(1).click();
+		driver.findElements(commonElement1).get(1).click();
 
 		Thread.sleep(5000);
 	}
+@Test(priority=6)
 
-	@Test(priority = 3)
 	public void enterOTP() throws ApiException, InterruptedException {
 		WaitForControllerApi waitForControllerApi = new WaitForControllerApi(defaultClient);
 		Email email = waitForControllerApi.waitForLatestEmail(inbox.getId(), null, null, null, null, null, null);
@@ -125,37 +150,45 @@ public class iOS_Onboarding {
 
 		if (matcher.find()) {
 			String otp = matcher.group();
-			driver.findElement(By.className("XCUIElementTypeTextField")).sendKeys(otp);
+			driver.findElement(commonElement2).sendKeys(otp);
 
 		} else {
 			System.out.println("OTP not found in the email body.");
 		}
 
 //		clickVerifyButton
-		driver.findElements(By.className("XCUIElementTypeButton")).get(2).click();
+		driver.findElements(commonElement1).get(2).click();
 		Thread.sleep(5000);
 	}
+@Test(priority=7)
 
-	@Test(priority = 4)
-	public void takeOnboardingAssessment() throws InterruptedException {
+	public void startAssessment() {
 //		clickGoto Health Assessment button
-		driver.findElement(By.className("XCUIElementTypeButton")).click();
+		driver.findElement(commonElement1).click();
+	}
+@Test(priority=8)
+
+	public void selectDOB() {
 
 //	    select date
-		driver.findElement(AppiumBy.accessibilityId("Previous month")).click();/* click back calendar button */
-		driver.findElement(AppiumBy.accessibilityId("1, Tuesday, July 1, 2008")).click();
-		driver.findElement(AppiumBy.accessibilityId("Continue")).click(); /* click continue button */
+		driver.findElement(previousButton).click();/* click back calendar button */
+		driver.findElement(yearElement).click();
+		driver.findElement(continueButton).click(); /* click continue button */
+	}
+
+@Test(priority=9)
+
+
+	public void selectGender()  {
 
 //		select male gender
-		driver.findElement(AppiumBy.accessibilityId(" Male")).click();
-		driver.findElement(AppiumBy.accessibilityId("Continue")).click(); /* click continue button */
-		Thread.sleep(5000);
+		driver.findElements(commonElement3).get(0).click();
+		driver.findElement(continueButton).click(); /* click continue button */
+	}
+@Test(priority=10)
 
-//		set height
-		List<WebElement> elements = driver.findElements(By.className("XCUIElementTypeStaticText"));
-		WebElement element = elements.get(6);
+	public void setHeight() throws InterruptedException {
 
-		// Define start and end coordinates
 		int startX = 287;
 		int startY = 532;
 		int endX = 205;
@@ -177,7 +210,15 @@ public class iOS_Onboarding {
 		driver.perform(Collections.singletonList(swipe));
 		Thread.sleep(5000);
 
-		driver.findElement(AppiumBy.accessibilityId("Continue")).click(); /* click continue button */
+		driver.findElement(continueButton).click(); /* click continue button */
+	}
+@Test(priority=11)
+
+	public void setWeight() throws InterruptedException {
+		int startX = 287;
+		int startY = 532;
+		int endX = 205;
+		int endY = 520;
 
 //		input weight
 		PointerInput finger2 = new PointerInput(PointerInput.Kind.TOUCH, "finger");
@@ -193,19 +234,26 @@ public class iOS_Onboarding {
 		driver.perform(Collections.singletonList(swipe2));
 		Thread.sleep(5000);
 
-		driver.findElement(AppiumBy.accessibilityId("Continue")).click(); /* click continue button */
+		driver.findElement(continueButton).click(); /* click continue button */
+	}
+@Test(priority=12)
+
+	public void skipSleepBlooodGroupSymptoms() {
 
 //			Skip sleep
-		driver.findElement(AppiumBy.accessibilityId("Skip")).click();
+		driver.findElement(skipButton).click();
 
 //			skip blood group
-		driver.findElement(AppiumBy.accessibilityId("Skip")).click();
+		driver.findElement(skipButton).click();
 
 //          skip symproms
-		driver.findElement(AppiumBy.accessibilityId("Skip")).click();
+		driver.findElement(skipButton).click();
+	}
+@Test(priority=13)
+
+	public void submitAccessment() throws InterruptedException {
 
 //			submit assessment
-		WebElement baloon = driver.findElement(AppiumBy.accessibilityId("Balloons"));
 		int endsX = 72;
 		int endsY = 283;
 
@@ -220,20 +268,23 @@ public class iOS_Onboarding {
 		driver.perform(Collections.singletonList(swipe3));
 
 		Thread.sleep(5000);
-		driver.findElement(AppiumBy.accessibilityId("Submit")).click();
+		driver.findElement(submitButton).click();
+	}
+@Test(priority=14)
+
+	public void accessHomeDashboard() throws InterruptedException {
 
 //			clickLearn your cygnal button
-		driver.findElement(AppiumBy.accessibilityId("Learn your Cygnal")).click();
+		driver.findElement(learnYourCygnalbutton).click();
 		Thread.sleep(5000);
 
 	}
+@Test(priority=15)
 
-	@Test(priority = 5)
-	public void deleteAccount() throws InterruptedException {
+	public void clickProfilePage() throws InterruptedException {
 //		click profile page button
-		driver.findElement(AppiumBy.accessibilityId("Profile Page Navigation Icon")).click();
+		driver.findElement(profilePage).click();
 
-		WebElement pInfo = driver.findElement(AppiumBy.accessibilityId("Personal Info"));
 		int endX = 133;
 		int endY = 63;
 
@@ -246,17 +297,20 @@ public class iOS_Onboarding {
 				.addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()));
 
 		driver.perform(Collections.singletonList(swipe));
+	}
+@Test(priority=16)
 
-		driver.findElement(AppiumBy.accessibilityId("Close Account")).click();
+	public void clickCloseAndDeleteButton() throws InterruptedException {
+
+		driver.findElement(closeAccountbutton).click();
 //click delete account button
-		driver.findElement(AppiumBy.accessibilityId("Delete Account")).click();
+		driver.findElement(deleteAccountButton).click();
 		Thread.sleep(5000);
 
 	}
+@Test(priority=17)
 
-	@Test(priority = 5)
-	public void verifyDeleteAccount() {
-		boolean text = driver.findElement(AppiumBy.accessibilityId("Welcome Back")).isDisplayed();
-		Assert.assertTrue(text);
+	public boolean verifyDeleteAccount() {
+		return driver.findElement(welcombackText).isDisplayed();
 	}
 }

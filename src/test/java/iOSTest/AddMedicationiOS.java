@@ -29,68 +29,72 @@ import io.appium.java_client.touch.offset.PointOption;
 
 public class AddMedicationiOS {
 
-	AppiumDriver driver;
+	private AppiumDriver driver;
 
-	@BeforeTest
-	public void Setup() throws MalformedURLException {
-
-		DesiredCapabilities cap = new DesiredCapabilities();
-
-		cap.setCapability("platformName", "iOS");
-		cap.setCapability("automationName", "XCUITest");
-		cap.setCapability("udid", "293CB621-315F-4285-922D-9DD8D1F45AC5");
-		cap.setCapability("bundleId", "com.mycygnal.mycygnal");
-		cap.setCapability("deviceName", "iPhone 15");
-		cap.setCapability("platformVersion", "17.5");
-//	        cap.setCapability("usePreinstalledWDA", "true");
-		cap.setCapability("app", "/Users/olufemiomeiza/Downloads/Runner-6.app");
-
-		try {
-			driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	public AddMedicationiOS(AppiumDriver driver) {
+		this.driver = driver;
 	}
 
-	@Test(priority = 0)
-	public void Login() throws InterruptedException {
-		WebElement nextBtn = driver.findElement(By.className("XCUIElementTypeButton"));
-		nextBtn.click();
-		Thread.sleep(2000);
+	private By selectActionButton = AppiumBy.accessibilityId("Select Actions Button");
+	private By addMedButton = AppiumBy.accessibilityId("Add Medications");
+	private By commonElement1 = By.className("XCUIElementTypeTextField");
+	private By antipertensiveOption = AppiumBy.accessibilityId("Antipertensives");
+	private By commonElement2 = By.className("XCUIElementTypeImage");
+	private By addMedication = By.xpath("//XCUIElementTypeButton[@name='Add Medication']");
+	private By checkMarkButton = AppiumBy.accessibilityId("Success Icon");
+	private By viewMedication = AppiumBy.accessibilityId("View Medication");
+	private By hourOption = AppiumBy.accessibilityId("Hour");
+	private By minuteOption = AppiumBy.accessibilityId("Minute");
+	private By okButton = AppiumBy.accessibilityId("OK");
+	private By am = AppiumBy.accessibilityId("AM");
+	private By pm = AppiumBy.accessibilityId("PM");
+	private By switchInput = AppiumBy.accessibilityId("Switch to text input mode");
+	private By toggleAlarm = AppiumBy.accessibilityId("Toggle Alarm On");
+	private By setReminder = By.xpath("//XCUIElementTypeButton[@name='Set Reminder']");
+	private By medicationPage = AppiumBy.accessibilityId("Go to Medications");
+	private By backHomeButton = By.xpath("//XCUIElementTypeButton");
 
-		driver.findElement(AppiumBy.accessibilityId("Next page button")).click();
+//		WebElement nextBtn = driver.findElement(By.className("XCUIElementTypeButton"));
+//		nextBtn.click();
+//		Thread.sleep(2000);
+//
+//		driver.findElement(AppiumBy.accessibilityId("Next page button")).click();
+//
+//		driver.findElement(AppiumBy.accessibilityId("Login")).click();
+//////	        
+//		WebElement emailField = driver.findElements(By.className("XCUIElementTypeTextField")).get(0);
+//		emailField.click();
+//		emailField.sendKeys("Ohlufehmii@gmail.com");
+//
+//		WebElement passwordField = driver.findElements(By.className("XCUIElementTypeTextField")).get(2);
+//		passwordField.click();
+//		passwordField.sendKeys("Hbon@1234");
+//
+//		driver.findElement(AppiumBy.accessibilityId("Login")).click();
+//
+//		Thread.sleep(5000);
+//	}
 
-		driver.findElement(AppiumBy.accessibilityId("Login")).click();
-////	        
-		WebElement emailField = driver.findElements(By.className("XCUIElementTypeTextField")).get(0);
-		emailField.click();
-		emailField.sendKeys("Ohlufehmii@gmail.com");
+	public void addMedication() {
 
-		WebElement passwordField = driver.findElements(By.className("XCUIElementTypeTextField")).get(2);
-		passwordField.click();
-		passwordField.sendKeys("Hbon@1234");
+		driver.findElement(selectActionButton).click();
 
-		driver.findElement(AppiumBy.accessibilityId("Login")).click();
-
-		Thread.sleep(5000);
+		driver.findElement(addMedButton).click();
 	}
 
-	@Test(priority = 1)
-	public void addMedication() throws InterruptedException {
+	public void addMedicationName(String medName) {
 
-		driver.findElement(AppiumBy.accessibilityId("Select Actions Button")).click();
+		driver.findElements(commonElement1).get(0).sendKeys(medName);
 		;
-		driver.findElement(AppiumBy.accessibilityId("Add Medications")).click();
+	}
 
-//			Medication name
+	public void addDosage(String dosage) {
 
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(0).sendKeys("Lesinopril");
+		driver.findElements(commonElement1).get(2).sendKeys(dosage);
+		;
+	}
 
-//			add Dosage
-		driver.findElements(By.className("XCUIElementTypeTextField")).get(2).sendKeys("2");
-
-//          Set Frequency
+	public void setFrequency() throws InterruptedException {
 
 		PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
 		int startX = 22;
@@ -109,93 +113,118 @@ public class AddMedicationiOS {
 		// Perform the sequence
 		driver.perform(Collections.singletonList(scroll));
 		Thread.sleep(2000);
-//			Select Category
 
-		driver.findElement(AppiumBy.accessibilityId("Antipertensives")).click();
+	}
+
+	public void selectCategory() {
+
+		driver.findElement(antipertensiveOption).click();
+	}
+
+	public void date() throws InterruptedException {
 
 //		    select start date
-		driver.findElements(By.className("XCUIElementTypeImage")).get(0).click();
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+		driver.findElements(commonElement2).get(0).click();
+		driver.findElement(okButton).click();
 
 //			select end date
-		driver.findElements(By.className("XCUIElementTypeImage")).get(2).click();
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+		driver.findElements(commonElement2).get(2).click();
+		driver.findElement(okButton).click();
+		
 
-//			click the add medication button
-		driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Add Medication\"]")).click();
+		PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+		int startX = 188;
+		int startY = 744;
+		int endX = 193;
+		int endY = 399;
+		// Create the sequence of actions
+		Sequence scroll = new Sequence(finger, 0)
+				.addAction(
+						finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), startX, startY))
+				.addAction(finger.createPointerDown(PointerInput.MouseButton.MIDDLE.asArg()))
+				.addAction(
+						finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), endX, endY))
+				.addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()));
 
-//			Verify that medication has been added.
+		// Perform the sequence
+		driver.perform(Collections.singletonList(scroll));
 		Thread.sleep(5000);
-		boolean icon = driver.findElement(AppiumBy.accessibilityId("Success Icon")).isDisplayed();
+	
+	}
+
+	public void verifyMedicationAdded() throws InterruptedException {
+
+		driver.findElement(addMedication).click();
+
+		Thread.sleep(5000);
+		boolean icon = driver.findElement(checkMarkButton).isDisplayed();
 		Assert.assertTrue(icon);
 
 	}
 
-	@Test(priority = 2)
 	public void addFirstDoseTime() throws InterruptedException {
-		driver.findElement(AppiumBy.accessibilityId("View Medication")).click();
+		driver.findElement(viewMedication).click();
 
 //          Start Time
-		driver.findElements(By.className("XCUIElementTypeImage")).get(0).click();
-		driver.findElement(AppiumBy.accessibilityId("Switch to text input mode")).click();
-		WebElement hour = driver.findElement(AppiumBy.accessibilityId("Hour"));
+		driver.findElements(commonElement2).get(0).click();
+		driver.findElement(switchInput).click();
+		WebElement hour = driver.findElement(hourOption);
 		hour.clear();
 		hour.sendKeys("5");
 
-		WebElement minute = driver.findElement(AppiumBy.accessibilityId("Minute"));
+		WebElement minute = driver.findElement(minuteOption);
 		minute.clear();
 		minute.sendKeys("00");
-		driver.findElement(AppiumBy.accessibilityId("AM")).click();
+		driver.findElement(am).click();
 
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+		driver.findElement(okButton).click();
 
 //			End time
-		driver.findElements(By.className("XCUIElementTypeImage")).get(2).click();
-		driver.findElement(AppiumBy.accessibilityId("Switch to text input mode")).click();
-		WebElement hour1 = driver.findElement(AppiumBy.accessibilityId("Hour"));
+		driver.findElements(commonElement2).get(2).click();
+		driver.findElement(switchInput).click();
+		WebElement hour1 = driver.findElement(hourOption);
 		hour1.clear();
 		hour1.sendKeys("5");
 
-		WebElement minute1 = driver.findElement(AppiumBy.accessibilityId("Minute"));
+		WebElement minute1 = driver.findElement(minuteOption);
 		minute1.clear();
 		minute1.sendKeys("05");
 
-		driver.findElement(AppiumBy.accessibilityId("AM")).click();
+		driver.findElement(minuteOption).click();
 
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+		driver.findElement(okButton).click();
 	}
 
-	@Test(priority = 3)
 	public void addSecondDoseTime() throws InterruptedException {
 
 //	          Start Time
-		driver.findElements(By.className("XCUIElementTypeImage")).get(4).click();
-		driver.findElement(AppiumBy.accessibilityId("Switch to text input mode")).click();
-		WebElement hour = driver.findElement(AppiumBy.accessibilityId("Hour"));
+		driver.findElements(commonElement2).get(4).click();
+		driver.findElement(switchInput).click();
+		WebElement hour = driver.findElement(hourOption);
 		hour.clear();
 		hour.sendKeys("10");
 
-		WebElement minute = driver.findElement(AppiumBy.accessibilityId("Minute"));
+		WebElement minute = driver.findElement(minuteOption);
 		minute.clear();
 		minute.sendKeys("00");
-		driver.findElement(AppiumBy.accessibilityId("AM")).click();
+		driver.findElement(am).click();
 
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+		driver.findElement(okButton).click();
 
 //				End time
-		driver.findElements(By.className("XCUIElementTypeImage")).get(6).click();
-		driver.findElement(AppiumBy.accessibilityId("Switch to text input mode")).click();
-		WebElement hour1 = driver.findElement(AppiumBy.accessibilityId("Hour"));
+		driver.findElements(commonElement2).get(6).click();
+		driver.findElement(switchInput).click();
+		WebElement hour1 = driver.findElement(hourOption);
 		hour1.clear();
 		hour1.sendKeys("10");
 
-		WebElement minute1 = driver.findElement(AppiumBy.accessibilityId("Minute"));
+		WebElement minute1 = driver.findElement(minuteOption);
 		minute1.clear();
 		minute1.sendKeys("05");
 
-		driver.findElement(AppiumBy.accessibilityId("AM")).click();
+		driver.findElement(am).click();
 
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+		driver.findElement(okButton).click();
 
 //				Perform a scroll upward.
 
@@ -218,64 +247,62 @@ public class AddMedicationiOS {
 		Thread.sleep(5000);
 	}
 
-	@Test(priority = 4)
 	public void addThirdDoseTime() throws InterruptedException {
 
 //	   	          Start Time
-		driver.findElements(By.className("XCUIElementTypeImage")).get(8).click();
-		driver.findElement(AppiumBy.accessibilityId("Switch to text input mode")).click();
-		WebElement hour = driver.findElement(AppiumBy.accessibilityId("Hour"));
+		driver.findElements(commonElement2).get(8).click();
+		driver.findElement(switchInput).click();
+		WebElement hour = driver.findElement(hourOption);
 		hour.clear();
 		hour.sendKeys("3");
 
-		WebElement minute = driver.findElement(AppiumBy.accessibilityId("Minute"));
+		WebElement minute = driver.findElement(minuteOption);
 		minute.clear();
 		minute.sendKeys("00");
-		driver.findElement(AppiumBy.accessibilityId("PM")).click();
+		driver.findElement(pm).click();
 
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+		driver.findElement(okButton).click();
 
 //	   				End time
-		driver.findElements(By.className("XCUIElementTypeImage")).get(10).click();
-		driver.findElement(AppiumBy.accessibilityId("Switch to text input mode")).click();
-		WebElement hour1 = driver.findElement(AppiumBy.accessibilityId("Hour"));
+		driver.findElements(commonElement2).get(10).click();
+		driver.findElement(switchInput).click();
+		WebElement hour1 = driver.findElement(hourOption);
 		hour1.clear();
 		hour1.sendKeys("3");
 
-		WebElement minute1 = driver.findElement(AppiumBy.accessibilityId("Minute"));
+		WebElement minute1 = driver.findElement(minuteOption);
 		minute1.clear();
 		minute1.sendKeys("05");
 
-		driver.findElement(AppiumBy.accessibilityId("PM")).click();
+		driver.findElement(pm).click();
 
-		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+		driver.findElement(okButton).click();
 	}
 
-	@Test(priority = 5)
 	public void completeReminderSetup() throws InterruptedException {
 
 //			Toggle alarm
-		WebElement Alarm = driver.findElement(AppiumBy.accessibilityId("Toggle Alarm On"));
+		WebElement Alarm = driver.findElement(toggleAlarm);
 		Alarm.click();
+		
+		
 //			Click set reminder button
-		driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Set Reminder\"]")).click();
+		driver.findElement(setReminder).click();
 		Thread.sleep(5000);
 	}
 
-	@Test(priority = 5)
 	public void ValidateReminderSet() {
-		boolean successCheckMark = driver.findElement(AppiumBy.accessibilityId("Success Icon")).isDisplayed();
+		boolean successCheckMark = driver.findElement(checkMarkButton).isDisplayed();
 		Assert.assertTrue(successCheckMark);
 
 	}
 
-	@Test(priority = 5)
 	public void gotoMedDashboard() {
 //		Go to the medication management page
-		driver.findElement(AppiumBy.accessibilityId("Go to Medications")).click();
+		driver.findElement(medicationPage).click();
 
 //		Click the back button to get back to the dashboard.
-		driver.findElement(By.xpath("//XCUIElementTypeButton")).click();
+		driver.findElement(backHomeButton).click();
 //	}
 	}
 }
