@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>11/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>23/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Aug 06 23:49:46 WAT 2024</td>
+<td>Started on:</td><td>Thu Aug 08 18:33:56 WAT 2024</td>
 </tr>
-<tr><td>Total time:</td><td>350 seconds (350674 ms)</td>
+<tr><td>Total time:</td><td>340 seconds (340176 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,69 +67,240 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='iOSTest.e2eTestiOS.logHeartRate()'><b>logHeartRate</b><br>Test class: iOSTest.e2eTestiOS</td>
-<td></td>
-<td>27</td>
-<td>iOSTest.e2eTestiOS@5745ca0e</td></tr>
+<td title='androidTest.Testclass.verifyRecommendation()'><b>verifyRecommendation</b><br>Test class: androidTest.Testclass</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.19.1&apos;, revision: &apos;abe0ee07dc&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;14.5&apos;, java.version: &apos;22.0.1&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [9e9d6fb6-9059-4dcf-b072-8fc7fc5f0184, findElement {using=accessibility id, value=Updated COVID-19 Vaccines (2023â2024)}]
+Capabilities {appium:app: /Users/olufemiomeiza/Downlo..., appium:appActivity: com.mycygnal.mycygnal.MainA..., appium:appPackage: com.mycygnal.mycygnal, appium:automationName: appium, appium:databaseEnabled: false, appium:desired: {app: /Users/olufemiomeiza/Downlo..., appActivity: com.mycygnal.mycygnal.MainA..., appPackage: com.mycygnal.mycygnal, automationName: appium, deviceName: VGP Phone, platformName: ANDROID, platformVersion: 10, udid: emulator-5554}, appium:deviceApiLevel: 29, appium:deviceManufacturer: Google, appium:deviceModel: Android SDK built for arm64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.625, appium:platformVersion: 10, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:udid: emulator-5554, appium:viewportRect: {height: 2211, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 9e9d6fb6-9059-4dcf-b072-8fc7fc5f0184
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:237)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+	at AndroidPageObject.RecommendationSystemPageObjectFactory.iscovid19VaccineDisplayed(RecommendationSystemPageObjectFactory.java:132)
+	at androidTest.Testclass.verifyRecommendation(Testclass.java:304)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace473163048", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace473163048'><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.19.1&apos;, revision: &apos;abe0ee07dc&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;14.5&apos;, java.version: &apos;22.0.1&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [9e9d6fb6-9059-4dcf-b072-8fc7fc5f0184, findElement {using=accessibility id, value=Updated COVID-19 Vaccines (2023â2024)}]
+Capabilities {appium:app: /Users/olufemiomeiza/Downlo..., appium:appActivity: com.mycygnal.mycygnal.MainA..., appium:appPackage: com.mycygnal.mycygnal, appium:automationName: appium, appium:databaseEnabled: false, appium:desired: {app: /Users/olufemiomeiza/Downlo..., appActivity: com.mycygnal.mycygnal.MainA..., appPackage: com.mycygnal.mycygnal, automationName: appium, deviceName: VGP Phone, platformName: ANDROID, platformVersion: 10, udid: emulator-5554}, appium:deviceApiLevel: 29, appium:deviceManufacturer: Google, appium:deviceModel: Android SDK built for arm64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.625, appium:platformVersion: 10, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:udid: emulator-5554, appium:viewportRect: {height: 2211, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 9e9d6fb6-9059-4dcf-b072-8fc7fc5f0184
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:237)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+	at AndroidPageObject.RecommendationSystemPageObjectFactory.iscovid19VaccineDisplayed(RecommendationSystemPageObjectFactory.java:132)
+	at androidTest.Testclass.verifyRecommendation(Testclass.java:304)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>20</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
 <tr>
-<td title='iOSTest.e2eTestiOS.beforeTestSetup()'><b>beforeTestSetup</b><br>Test class: iOSTest.e2eTestiOS</td>
+<td title='androidTest.Testclass.logNewHeartRate()'><b>logNewHeartRate</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>17</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.ValidateInitialAverageSleepValue()'><b>ValidateInitialAverageSleepValue</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>8</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.validateHeartRatelogged()'><b>validateHeartRatelogged</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>4</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.verifyLatestHeartrateLog()'><b>verifyLatestHeartrateLog</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>1</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.completeOnboardingAssessment()'><b>completeOnboardingAssessment</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>33</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.LogSleep()'><b>LogSleep</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>8</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.startRecommendationAssessment()'><b>startRecommendationAssessment</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>14</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.verifyInitialLatestBP()'><b>verifyInitialLatestBP</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>5</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.verifyInitialHeartratevalue()'><b>verifyInitialHeartratevalue</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>0</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.signUp()'><b>signUp</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>34</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.verifyBPLog()'><b>verifyBPLog</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>6</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.ValidateSymptomsLog()'><b>ValidateSymptomsLog</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>8</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.deleteAccount()'><b>deleteAccount</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>8</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.ValidateReminderSet()'><b>ValidateReminderSet</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>15</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.addMedication()'><b>addMedication</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>21</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.logProcedure()'><b>logProcedure</b><br>Test class: androidTest.Testclass</td>
+<td></td>
+<td>25</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
+<tr>
+<td title='androidTest.Testclass.ValidateAverageSleepTrackerFunctionality()'><b>ValidateAverageSleepTrackerFunctionality</b><br>Test class: androidTest.Testclass</td>
 <td></td>
 <td>2</td>
-<td>iOSTest.e2eTestiOS@5745ca0e</td></tr>
+<td>androidTest.Testclass@40ef3420</td></tr>
 <tr>
-<td title='iOSTest.e2eTestiOS.onboardingAssessment()'><b>onboardingAssessment</b><br>Test class: iOSTest.e2eTestiOS</td>
+<td title='androidTest.Testclass.ValidateProcedureLog()'><b>ValidateProcedureLog</b><br>Test class: androidTest.Testclass</td>
 <td></td>
-<td>44</td>
-<td>iOSTest.e2eTestiOS@5745ca0e</td></tr>
+<td>13</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
 <tr>
-<td title='iOSTest.e2eTestiOS.logProcedure()'><b>logProcedure</b><br>Test class: iOSTest.e2eTestiOS</td>
+<td title='androidTest.Testclass.logSymptom()'><b>logSymptom</b><br>Test class: androidTest.Testclass</td>
 <td></td>
-<td>41</td>
-<td>iOSTest.e2eTestiOS@5745ca0e</td></tr>
+<td>21</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
 <tr>
-<td title='iOSTest.e2eTestiOS.signUp()'><b>signUp</b><br>Test class: iOSTest.e2eTestiOS</td>
+<td title='androidTest.Testclass.logBP()'><b>logBP</b><br>Test class: androidTest.Testclass</td>
 <td></td>
-<td>43</td>
-<td>iOSTest.e2eTestiOS@5745ca0e</td></tr>
+<td>23</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
 <tr>
-<td title='iOSTest.e2eTestiOS.logSleep()'><b>logSleep</b><br>Test class: iOSTest.e2eTestiOS</td>
+<td title='androidTest.Testclass.VerifyAverageBPChange()'><b>VerifyAverageBPChange</b><br>Test class: androidTest.Testclass</td>
 <td></td>
-<td>30</td>
-<td>iOSTest.e2eTestiOS@5745ca0e</td></tr>
+<td>0</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
 <tr>
-<td title='iOSTest.e2eTestiOS.logSymptoms()'><b>logSymptoms</b><br>Test class: iOSTest.e2eTestiOS</td>
+<td title='androidTest.Testclass.VerifySleepLog()'><b>VerifySleepLog</b><br>Test class: androidTest.Testclass</td>
 <td></td>
-<td>28</td>
-<td>iOSTest.e2eTestiOS@5745ca0e</td></tr>
+<td>2</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
 <tr>
-<td title='iOSTest.e2eTestiOS.setDosage()'><b>setDosage</b><br>Test class: iOSTest.e2eTestiOS</td>
+<td title='androidTest.Testclass.SetMedReminder()'><b>SetMedReminder</b><br>Test class: androidTest.Testclass</td>
 <td></td>
-<td>46</td>
-<td>iOSTest.e2eTestiOS@5745ca0e</td></tr>
-<tr>
-<td title='iOSTest.e2eTestiOS.addMedication()'><b>addMedication</b><br>Test class: iOSTest.e2eTestiOS</td>
-<td></td>
-<td>27</td>
-<td>iOSTest.e2eTestiOS@5745ca0e</td></tr>
-<tr>
-<td title='iOSTest.e2eTestiOS.deleteAccount()'><b>deleteAccount</b><br>Test class: iOSTest.e2eTestiOS</td>
-<td></td>
-<td>7</td>
-<td>iOSTest.e2eTestiOS@5745ca0e</td></tr>
-<tr>
-<td title='iOSTest.e2eTestiOS.logBP()'><b>logBP</b><br>Test class: iOSTest.e2eTestiOS</td>
-<td></td>
-<td>30</td>
-<td>iOSTest.e2eTestiOS@5745ca0e</td></tr>
+<td>25</td>
+<td>androidTest.Testclass@40ef3420</td></tr>
 </table><p>
 </body>
 </html>

@@ -1,61 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="11" passed="11" failed="0" skipped="0">
+<testng-results ignored="0" total="24" passed="23" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-06T23:49:46 WAT" name="Default suite" finished-at="2024-08-06T23:55:36 WAT" duration-ms="350674">
+  <suite started-at="2024-08-08T18:33:56 WAT" name="Default suite" finished-at="2024-08-08T18:39:36 WAT" duration-ms="340176">
     <groups>
     </groups>
-    <test started-at="2024-08-06T23:49:46 WAT" name="Default test" finished-at="2024-08-06T23:55:36 WAT" duration-ms="350674">
-      <class name="iOSTest.e2eTestiOS">
-        <test-method is-config="true" signature="Setup()[pri:0, instance:iOSTest.e2eTestiOS@5745ca0e]" started-at="2024-08-06T23:49:46 WAT" name="Setup" finished-at="2024-08-06T23:50:05 WAT" duration-ms="19542" status="PASS">
+    <test started-at="2024-08-08T18:33:56 WAT" name="Default test" finished-at="2024-08-08T18:39:36 WAT" duration-ms="340176">
+      <class name="androidTest.Testclass">
+        <test-method is-config="true" signature="Setup()[pri:0, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:33:56 WAT" name="Setup" finished-at="2024-08-08T18:34:05 WAT" duration-ms="9264" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method signature="beforeTestSetup()[pri:0, instance:iOSTest.e2eTestiOS@5745ca0e]" started-at="2024-08-06T23:50:05 WAT" name="beforeTestSetup" finished-at="2024-08-06T23:50:07 WAT" duration-ms="2257" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeTestSetup -->
-        <test-method signature="signUp()[pri:1, instance:iOSTest.e2eTestiOS@5745ca0e]" started-at="2024-08-06T23:50:07 WAT" name="signUp" finished-at="2024-08-06T23:50:51 WAT" duration-ms="43977" status="PASS">
+        <test-method signature="signUp()[pri:0, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:34:05 WAT" name="signUp" finished-at="2024-08-08T18:34:40 WAT" duration-ms="34615" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- signUp -->
-        <test-method signature="onboardingAssessment()[pri:2, instance:iOSTest.e2eTestiOS@5745ca0e]" started-at="2024-08-06T23:50:51 WAT" name="onboardingAssessment" finished-at="2024-08-06T23:51:36 WAT" duration-ms="44624" status="PASS">
+        <test-method signature="completeOnboardingAssessment()[pri:1, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:34:40 WAT" name="completeOnboardingAssessment" finished-at="2024-08-08T18:35:13 WAT" duration-ms="33466" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- onboardingAssessment -->
-        <test-method signature="addMedication()[pri:3, instance:iOSTest.e2eTestiOS@5745ca0e]" started-at="2024-08-06T23:51:36 WAT" name="addMedication" finished-at="2024-08-06T23:52:04 WAT" duration-ms="27490" status="PASS">
+        </test-method> <!-- completeOnboardingAssessment -->
+        <test-method signature="ValidateInitialAverageSleepValue()[pri:2, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:35:13 WAT" name="ValidateInitialAverageSleepValue" finished-at="2024-08-08T18:35:22 WAT" duration-ms="8256" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addMedication -->
-        <test-method signature="setDosage()[pri:4, instance:iOSTest.e2eTestiOS@5745ca0e]" started-at="2024-08-06T23:52:04 WAT" name="setDosage" finished-at="2024-08-06T23:52:50 WAT" duration-ms="46332" status="PASS">
+        </test-method> <!-- ValidateInitialAverageSleepValue -->
+        <test-method signature="LogSleep()[pri:3, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:35:22 WAT" name="LogSleep" finished-at="2024-08-08T18:35:30 WAT" duration-ms="8823" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setDosage -->
-        <test-method signature="logSymptoms()[pri:5, instance:iOSTest.e2eTestiOS@5745ca0e]" started-at="2024-08-06T23:52:50 WAT" name="logSymptoms" finished-at="2024-08-06T23:53:19 WAT" duration-ms="28694" status="PASS">
+        </test-method> <!-- LogSleep -->
+        <test-method signature="VerifySleepLog()[pri:4, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:35:30 WAT" name="VerifySleepLog" finished-at="2024-08-08T18:35:33 WAT" duration-ms="2915" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- logSymptoms -->
-        <test-method signature="logProcedure()[pri:6, instance:iOSTest.e2eTestiOS@5745ca0e]" started-at="2024-08-06T23:53:19 WAT" name="logProcedure" finished-at="2024-08-06T23:54:00 WAT" duration-ms="41708" status="PASS">
+        </test-method> <!-- VerifySleepLog -->
+        <test-method signature="ValidateAverageSleepTrackerFunctionality()[pri:5, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:35:33 WAT" name="ValidateAverageSleepTrackerFunctionality" finished-at="2024-08-08T18:35:36 WAT" duration-ms="2930" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateAverageSleepTrackerFunctionality -->
+        <test-method signature="logProcedure()[pri:6, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:35:36 WAT" name="logProcedure" finished-at="2024-08-08T18:36:02 WAT" duration-ms="25481" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logProcedure -->
-        <test-method signature="logHeartRate()[pri:7, instance:iOSTest.e2eTestiOS@5745ca0e]" started-at="2024-08-06T23:54:00 WAT" name="logHeartRate" finished-at="2024-08-06T23:54:28 WAT" duration-ms="27475" status="PASS">
+        <test-method signature="ValidateProcedureLog()[pri:7, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:36:02 WAT" name="ValidateProcedureLog" finished-at="2024-08-08T18:36:15 WAT" duration-ms="13515" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- logHeartRate -->
-        <test-method signature="logBP()[pri:8, instance:iOSTest.e2eTestiOS@5745ca0e]" started-at="2024-08-06T23:54:28 WAT" name="logBP" finished-at="2024-08-06T23:54:58 WAT" duration-ms="30028" status="PASS">
+        </test-method> <!-- ValidateProcedureLog -->
+        <test-method signature="addMedication()[pri:8, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:36:15 WAT" name="addMedication" finished-at="2024-08-08T18:36:37 WAT" duration-ms="21772" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addMedication -->
+        <test-method signature="SetMedReminder()[pri:9, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:36:37 WAT" name="SetMedReminder" finished-at="2024-08-08T18:37:03 WAT" duration-ms="25862" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SetMedReminder -->
+        <test-method signature="ValidateReminderSet()[pri:10, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:37:03 WAT" name="ValidateReminderSet" finished-at="2024-08-08T18:37:19 WAT" duration-ms="15574" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateReminderSet -->
+        <test-method signature="logSymptom()[pri:11, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:37:19 WAT" name="logSymptom" finished-at="2024-08-08T18:37:40 WAT" duration-ms="21675" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logSymptom -->
+        <test-method signature="ValidateSymptomsLog()[pri:12, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:37:40 WAT" name="ValidateSymptomsLog" finished-at="2024-08-08T18:37:49 WAT" duration-ms="8734" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateSymptomsLog -->
+        <test-method signature="verifyInitialLatestBP()[pri:13, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:37:49 WAT" name="verifyInitialLatestBP" finished-at="2024-08-08T18:37:54 WAT" duration-ms="5192" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInitialLatestBP -->
+        <test-method signature="logBP()[pri:14, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:37:54 WAT" name="logBP" finished-at="2024-08-08T18:38:17 WAT" duration-ms="23293" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logBP -->
-        <test-method signature="logSleep()[pri:9, instance:iOSTest.e2eTestiOS@5745ca0e]" started-at="2024-08-06T23:54:58 WAT" name="logSleep" finished-at="2024-08-06T23:55:28 WAT" duration-ms="30522" status="PASS">
+        <test-method signature="verifyBPLog()[pri:15, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:38:17 WAT" name="verifyBPLog" finished-at="2024-08-08T18:38:24 WAT" duration-ms="6373" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- logSleep -->
-        <test-method signature="deleteAccount()[pri:10, instance:iOSTest.e2eTestiOS@5745ca0e]" started-at="2024-08-06T23:55:28 WAT" name="deleteAccount" finished-at="2024-08-06T23:55:36 WAT" duration-ms="7857" status="PASS">
+        </test-method> <!-- verifyBPLog -->
+        <test-method signature="VerifyAverageBPChange()[pri:16, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:38:24 WAT" name="VerifyAverageBPChange" finished-at="2024-08-08T18:38:25 WAT" duration-ms="946" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAverageBPChange -->
+        <test-method signature="verifyInitialHeartratevalue()[pri:17, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:38:25 WAT" name="verifyInitialHeartratevalue" finished-at="2024-08-08T18:38:26 WAT" duration-ms="897" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInitialHeartratevalue -->
+        <test-method signature="logNewHeartRate()[pri:18, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:38:26 WAT" name="logNewHeartRate" finished-at="2024-08-08T18:38:43 WAT" duration-ms="17412" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logNewHeartRate -->
+        <test-method signature="validateHeartRatelogged()[pri:19, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:38:43 WAT" name="validateHeartRatelogged" finished-at="2024-08-08T18:38:47 WAT" duration-ms="4023" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateHeartRatelogged -->
+        <test-method signature="verifyLatestHeartrateLog()[pri:20, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:38:47 WAT" name="verifyLatestHeartrateLog" finished-at="2024-08-08T18:38:49 WAT" duration-ms="1523" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLatestHeartrateLog -->
+        <test-method signature="startRecommendationAssessment()[pri:21, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:38:49 WAT" name="startRecommendationAssessment" finished-at="2024-08-08T18:39:03 WAT" duration-ms="14697" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startRecommendationAssessment -->
+        <test-method signature="verifyRecommendation()[pri:22, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:39:03 WAT" name="verifyRecommendation" finished-at="2024-08-08T18:39:23 WAT" duration-ms="20159" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.19.1', revision: 'abe0ee07dc'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '22.0.1'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [9e9d6fb6-9059-4dcf-b072-8fc7fc5f0184, findElement {using=accessibility id, value=Updated COVID-19 Vaccines (2023â2024)}]
+Capabilities {appium:app: /Users/olufemiomeiza/Downlo..., appium:appActivity: com.mycygnal.mycygnal.MainA..., appium:appPackage: com.mycygnal.mycygnal, appium:automationName: appium, appium:databaseEnabled: false, appium:desired: {app: /Users/olufemiomeiza/Downlo..., appActivity: com.mycygnal.mycygnal.MainA..., appPackage: com.mycygnal.mycygnal, automationName: appium, deviceName: VGP Phone, platformName: ANDROID, platformVersion: 10, udid: emulator-5554}, appium:deviceApiLevel: 29, appium:deviceManufacturer: Google, appium:deviceModel: Android SDK built for arm64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.625, appium:platformVersion: 10, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:udid: emulator-5554, appium:viewportRect: {height: 2211, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 9e9d6fb6-9059-4dcf-b072-8fc7fc5f0184]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.19.1', revision: 'abe0ee07dc'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '22.0.1'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [9e9d6fb6-9059-4dcf-b072-8fc7fc5f0184, findElement {using=accessibility id, value=Updated COVID-19 Vaccines (2023â2024)}]
+Capabilities {appium:app: /Users/olufemiomeiza/Downlo..., appium:appActivity: com.mycygnal.mycygnal.MainA..., appium:appPackage: com.mycygnal.mycygnal, appium:automationName: appium, appium:databaseEnabled: false, appium:desired: {app: /Users/olufemiomeiza/Downlo..., appActivity: com.mycygnal.mycygnal.MainA..., appPackage: com.mycygnal.mycygnal, automationName: appium, deviceName: VGP Phone, platformName: ANDROID, platformVersion: 10, udid: emulator-5554}, appium:deviceApiLevel: 29, appium:deviceManufacturer: Google, appium:deviceModel: Android SDK built for arm64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.625, appium:platformVersion: 10, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:udid: emulator-5554, appium:viewportRect: {height: 2211, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 9e9d6fb6-9059-4dcf-b072-8fc7fc5f0184
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:237)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+at AndroidPageObject.RecommendationSystemPageObjectFactory.iscovid19VaccineDisplayed(RecommendationSystemPageObjectFactory.java:132)
+at androidTest.Testclass.verifyRecommendation(Testclass.java:304)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRecommendation -->
+        <test-method signature="deleteAccount()[pri:23, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:39:24 WAT" name="deleteAccount" finished-at="2024-08-08T18:39:32 WAT" duration-ms="8789" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteAccount -->
-      </class> <!-- iOSTest.e2eTestiOS -->
+        <test-method is-config="true" signature="QuitApp()[pri:0, instance:androidTest.Testclass@40ef3420]" started-at="2024-08-08T18:39:32 WAT" name="QuitApp" finished-at="2024-08-08T18:39:36 WAT" duration-ms="3750" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- QuitApp -->
+      </class> <!-- androidTest.Testclass -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

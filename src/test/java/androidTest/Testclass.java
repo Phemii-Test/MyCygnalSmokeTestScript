@@ -19,6 +19,15 @@ import org.testng.annotations.Test;
 import com.google.common.collect.ImmutableMap;
 import com.mailslurp.clients.ApiException;
 
+import AndroidPageObject.AddHeartRatePageObjectFactory;
+import AndroidPageObject.LogProcedureObjectFactory;
+import AndroidPageObject.LogSymptomsObjectFactory;
+import AndroidPageObject.OnboardingObjectFactory;
+import AndroidPageObject.RecommendationSystemPageObjectFactory;
+import AndroidPageObject.SleepTrackerPageObjectFactory;
+import AndroidPageObject.addBloodPressurePageObjectFactory;
+import AndroidPageObject.addMedicationObjectFactory;
+import AndroidPageObject.loginObjectFactory;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -48,7 +57,7 @@ public class Testclass {
 		cap.setCapability("appPackage", "com.mycygnal.mycygnal");
 		cap.setCapability("appActivity", "com.mycygnal.mycygnal.MainActivity");
 		cap.setCapability("automationName", "appium");
-		cap.setCapability("app", "/Users/olufemiomeiza/Downloads/app-release-9.apk");
+		cap.setCapability("app", "/Users/olufemiomeiza/Downloads/app-release-10.apk");
 
 		try {
 			driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);

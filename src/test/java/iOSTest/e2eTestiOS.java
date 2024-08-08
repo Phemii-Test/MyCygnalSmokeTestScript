@@ -22,7 +22,15 @@ import com.mailslurp.clients.ApiException;
 import com.mailslurp.clients.Configuration;
 import com.mailslurp.models.InboxDto;
 
-import androidTest.SleepTrackerPageObjectFactory;
+import AndroidPageObject.SleepTrackerPageObjectFactory;
+import iOSPageObject.AddMedicationiOS;
+import iOSPageObject.LogBPiOS;
+import iOSPageObject.LogProcedureiOS;
+import iOSPageObject.LogSleep;
+import iOSPageObject.LogSymptomsiOS;
+import iOSPageObject.iOS_Onboarding;
+import iOSPageObject.log_HeartRate_iOS;
+import iOSPageObject.recommendationSteps;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -46,6 +54,7 @@ public class e2eTestiOS {
 	private log_HeartRate_iOS heartRateSteps;
 	private LogBPiOS          bpSteps;
 	private LogSleep         logSleepSteps;
+	private recommendationSteps RecommendationSteps;
 
 	@BeforeTest
 	public void Setup() throws MalformedURLException {
@@ -58,8 +67,8 @@ public class e2eTestiOS {
 		cap.setCapability("bundleId", "com.mycygnal.mycygnal");
 		cap.setCapability("deviceName", "iPhone 15");
 		cap.setCapability("platformVersion", "17.5");
-//	        cap.setCapability("usePreinstalledWDA", "true");
-		cap.setCapability("app", "/Users/olufemiomeiza/Downloads/Runner-7.app");
+	        cap.setCapability("autoDismissAlerts", "true");
+		cap.setCapability("app", "/Users/olufemiomeiza/Downloads/Runner-12.app");
 
 		try {
 			driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
@@ -75,7 +84,7 @@ public class e2eTestiOS {
 		heartRateSteps = new log_HeartRate_iOS(driver);
 		bpSteps = new LogBPiOS(driver);
 		logSleepSteps = new LogSleep(driver);
-		
+		RecommendationSteps = new recommendationSteps(driver);
 	}
 	
 	@Test(priority=0)
@@ -196,7 +205,25 @@ public void setDosage() throws InterruptedException	{
 		logSleepSteps.backToHomescreen();
 		
 	}
+	
 	@Test(priority = 10)
+	
+	public void RecommendationSystem() throws InterruptedException   {
+		RecommendationSteps.initiateRecommendation();
+		RecommendationSteps.accessmentQuestion1();
+		RecommendationSteps.accessmentQuestion2();
+		RecommendationSteps.accessmentQuestion3();
+		RecommendationSteps.accessmentQuestion4();
+		RecommendationSteps.scrollUpAndContinue();
+		RecommendationSteps.accessmentQuestion5();
+		RecommendationSteps.accessmentQuestion6();
+		RecommendationSteps.Covid19VaccineIsDisplayed();
+		RecommendationSteps.HPVVaccineIsDisplayed();
+		RecommendationSteps.influenzaIsDisplayed();
+		
+		
+	}
+	@Test(priority = 11)
 public void deleteAccount() throws InterruptedException 	{
 		onboardingSteps.clickProfilePage();
 		onboardingSteps.clickCloseAndDeleteButton();
