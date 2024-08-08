@@ -7,7 +7,7 @@
 
     <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
     <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
-    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="testng-reports.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type='text/javascript'>
@@ -21,11 +21,12 @@
      -->
   </head>
 
-  <body>    <div class="top-banner-root">
+  <body>
+    <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,7 +93,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">11 methods,   11 passed</span>
+                    <span class="method-stats">24 methods, 1 failed,   23 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="verifyRecommendation">verifyRecommendation</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,57 +118,117 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="iOSTest.e2eTestiOS" class="method navigator-link" hash-for-method="addMedication">addMedication</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="LogSleep">LogSleep</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="iOSTest.e2eTestiOS" class="method navigator-link" hash-for-method="beforeTestSetup">beforeTestSetup</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="SetMedReminder">SetMedReminder</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="iOSTest.e2eTestiOS" class="method navigator-link" hash-for-method="deleteAccount">deleteAccount</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="ValidateAverageSleepTrackerFunctionality">ValidateAverageSleepTrackerFunctionality</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="iOSTest.e2eTestiOS" class="method navigator-link" hash-for-method="logBP">logBP</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="ValidateInitialAverageSleepValue">ValidateInitialAverageSleepValue</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="iOSTest.e2eTestiOS" class="method navigator-link" hash-for-method="logHeartRate">logHeartRate</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="ValidateProcedureLog">ValidateProcedureLog</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="iOSTest.e2eTestiOS" class="method navigator-link" hash-for-method="logProcedure">logProcedure</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="ValidateReminderSet">ValidateReminderSet</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="iOSTest.e2eTestiOS" class="method navigator-link" hash-for-method="logSleep">logSleep</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="ValidateSymptomsLog">ValidateSymptomsLog</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="iOSTest.e2eTestiOS" class="method navigator-link" hash-for-method="logSymptoms">logSymptoms</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="VerifyAverageBPChange">VerifyAverageBPChange</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="iOSTest.e2eTestiOS" class="method navigator-link" hash-for-method="onboardingAssessment">onboardingAssessment</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="VerifySleepLog">VerifySleepLog</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="iOSTest.e2eTestiOS" class="method navigator-link" hash-for-method="setDosage">setDosage</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="addMedication">addMedication</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="iOSTest.e2eTestiOS" class="method navigator-link" hash-for-method="signUp">signUp</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="completeOnboardingAssessment">completeOnboardingAssessment</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="deleteAccount">deleteAccount</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="logBP">logBP</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="logNewHeartRate">logNewHeartRate</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="logProcedure">logProcedure</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="logSymptom">logSymptom</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="signUp">signUp</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="startRecommendationAssessment">startRecommendationAssessment</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="validateHeartRatelogged">validateHeartRatelogged</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="verifyBPLog">verifyBPLog</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="verifyInitialHeartratevalue">verifyInitialHeartratevalue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="verifyInitialLatestBP">verifyInitialLatestBP</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="androidTest.Testclass" class="method navigator-link" hash-for-method="verifyLatestHeartrateLog">verifyLatestHeartrateLog</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -168,12 +243,141 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">androidTest.Testclass</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyRecommendation">
+                  </a> <!-- verifyRecommendation -->
+                  <span class="method-name">verifyRecommendation</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.19.1&apos;, revision: &apos;abe0ee07dc&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;14.5&apos;, java.version: &apos;22.0.1&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [9e9d6fb6-9059-4dcf-b072-8fc7fc5f0184, findElement {using=accessibility id, value=Updated COVID-19 Vaccines (2023â2024)}]
+Capabilities {appium:app: /Users/olufemiomeiza/Downlo..., appium:appActivity: com.mycygnal.mycygnal.MainA..., appium:appPackage: com.mycygnal.mycygnal, appium:automationName: appium, appium:databaseEnabled: false, appium:desired: {app: /Users/olufemiomeiza/Downlo..., appActivity: com.mycygnal.mycygnal.MainA..., appPackage: com.mycygnal.mycygnal, automationName: appium, deviceName: VGP Phone, platformName: ANDROID, platformVersion: 10, udid: emulator-5554}, appium:deviceApiLevel: 29, appium:deviceManufacturer: Google, appium:deviceModel: Android SDK built for arm64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.625, appium:platformVersion: 10, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:udid: emulator-5554, appium:viewportRect: {height: 2211, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 9e9d6fb6-9059-4dcf-b072-8fc7fc5f0184
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:237)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+	at AndroidPageObject.RecommendationSystemPageObjectFactory.iscovid19VaccineDisplayed(RecommendationSystemPageObjectFactory.java:132)
+	at androidTest.Testclass.verifyRecommendation(Testclass.java:304)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">iOSTest.e2eTestiOS</span>
+              <span class="class-name">androidTest.Testclass</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="LogSleep">
+                  </a> <!-- LogSleep -->
+                  <span class="method-name">LogSleep</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SetMedReminder">
+                  </a> <!-- SetMedReminder -->
+                  <span class="method-name">SetMedReminder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ValidateAverageSleepTrackerFunctionality">
+                  </a> <!-- ValidateAverageSleepTrackerFunctionality -->
+                  <span class="method-name">ValidateAverageSleepTrackerFunctionality</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ValidateInitialAverageSleepValue">
+                  </a> <!-- ValidateInitialAverageSleepValue -->
+                  <span class="method-name">ValidateInitialAverageSleepValue</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ValidateProcedureLog">
+                  </a> <!-- ValidateProcedureLog -->
+                  <span class="method-name">ValidateProcedureLog</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ValidateReminderSet">
+                  </a> <!-- ValidateReminderSet -->
+                  <span class="method-name">ValidateReminderSet</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ValidateSymptomsLog">
+                  </a> <!-- ValidateSymptomsLog -->
+                  <span class="method-name">ValidateSymptomsLog</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyAverageBPChange">
+                  </a> <!-- VerifyAverageBPChange -->
+                  <span class="method-name">VerifyAverageBPChange</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifySleepLog">
+                  </a> <!-- VerifySleepLog -->
+                  <span class="method-name">VerifySleepLog</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="addMedication">
@@ -183,9 +387,9 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="beforeTestSetup">
-                  </a> <!-- beforeTestSetup -->
-                  <span class="method-name">beforeTestSetup</span>
+                  <a name="completeOnboardingAssessment">
+                  </a> <!-- completeOnboardingAssessment -->
+                  <span class="method-name">completeOnboardingAssessment</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -204,9 +408,9 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="logHeartRate">
-                  </a> <!-- logHeartRate -->
-                  <span class="method-name">logHeartRate</span>
+                  <a name="logNewHeartRate">
+                  </a> <!-- logNewHeartRate -->
+                  <span class="method-name">logNewHeartRate</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -218,30 +422,9 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="logSleep">
-                  </a> <!-- logSleep -->
-                  <span class="method-name">logSleep</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="logSymptoms">
-                  </a> <!-- logSymptoms -->
-                  <span class="method-name">logSymptoms</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="onboardingAssessment">
-                  </a> <!-- onboardingAssessment -->
-                  <span class="method-name">onboardingAssessment</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="setDosage">
-                  </a> <!-- setDosage -->
-                  <span class="method-name">setDosage</span>
+                  <a name="logSymptom">
+                  </a> <!-- logSymptom -->
+                  <span class="method-name">logSymptom</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -251,12 +434,54 @@
                   <span class="method-name">signUp</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="startRecommendationAssessment">
+                  </a> <!-- startRecommendationAssessment -->
+                  <span class="method-name">startRecommendationAssessment</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validateHeartRatelogged">
+                  </a> <!-- validateHeartRatelogged -->
+                  <span class="method-name">validateHeartRatelogged</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyBPLog">
+                  </a> <!-- verifyBPLog -->
+                  <span class="method-name">verifyBPLog</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyInitialHeartratevalue">
+                  </a> <!-- verifyInitialHeartratevalue -->
+                  <span class="method-name">verifyInitialHeartratevalue</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyInitialLatestBP">
+                  </a> <!-- verifyInitialLatestBP -->
+                  <span class="method-name">verifyInitialLatestBP</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyLatestHeartrateLog">
+                  </a> <!-- verifyLatestHeartrateLog -->
+                  <span class="method-name">verifyLatestHeartrateLog</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/ny/r0sk5fms3s7ggppg8wr8r8c00000gp/T/testng-eclipse--2022591765/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/ny/r0sk5fms3s7ggppg8wr8r8c00000gp/T/testng-eclipse--328757248/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -265,7 +490,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;iOSTest.e2eTestiOS&quot;/&gt;
+      &lt;class name=&quot;androidTest.Testclass&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -305,51 +530,103 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(11);
+data.addRows(24);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'setDosage')
-data.setCell(0, 2, 'iOSTest.e2eTestiOS')
-data.setCell(0, 3, 46332);
+data.setCell(0, 1, 'signUp')
+data.setCell(0, 2, 'androidTest.Testclass')
+data.setCell(0, 3, 34615);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'onboardingAssessment')
-data.setCell(1, 2, 'iOSTest.e2eTestiOS')
-data.setCell(1, 3, 44624);
+data.setCell(1, 1, 'completeOnboardingAssessment')
+data.setCell(1, 2, 'androidTest.Testclass')
+data.setCell(1, 3, 33466);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'signUp')
-data.setCell(2, 2, 'iOSTest.e2eTestiOS')
-data.setCell(2, 3, 43977);
+data.setCell(2, 1, 'SetMedReminder')
+data.setCell(2, 2, 'androidTest.Testclass')
+data.setCell(2, 3, 25862);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'logProcedure')
-data.setCell(3, 2, 'iOSTest.e2eTestiOS')
-data.setCell(3, 3, 41708);
+data.setCell(3, 2, 'androidTest.Testclass')
+data.setCell(3, 3, 25481);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'logSleep')
-data.setCell(4, 2, 'iOSTest.e2eTestiOS')
-data.setCell(4, 3, 30522);
+data.setCell(4, 1, 'logBP')
+data.setCell(4, 2, 'androidTest.Testclass')
+data.setCell(4, 3, 23293);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'logBP')
-data.setCell(5, 2, 'iOSTest.e2eTestiOS')
-data.setCell(5, 3, 30028);
+data.setCell(5, 1, 'addMedication')
+data.setCell(5, 2, 'androidTest.Testclass')
+data.setCell(5, 3, 21772);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'logSymptoms')
-data.setCell(6, 2, 'iOSTest.e2eTestiOS')
-data.setCell(6, 3, 28694);
+data.setCell(6, 1, 'logSymptom')
+data.setCell(6, 2, 'androidTest.Testclass')
+data.setCell(6, 3, 21675);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'addMedication')
-data.setCell(7, 2, 'iOSTest.e2eTestiOS')
-data.setCell(7, 3, 27490);
+data.setCell(7, 1, 'verifyRecommendation')
+data.setCell(7, 2, 'androidTest.Testclass')
+data.setCell(7, 3, 20159);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'logHeartRate')
-data.setCell(8, 2, 'iOSTest.e2eTestiOS')
-data.setCell(8, 3, 27475);
+data.setCell(8, 1, 'logNewHeartRate')
+data.setCell(8, 2, 'androidTest.Testclass')
+data.setCell(8, 3, 17412);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'deleteAccount')
-data.setCell(9, 2, 'iOSTest.e2eTestiOS')
-data.setCell(9, 3, 7857);
+data.setCell(9, 1, 'ValidateReminderSet')
+data.setCell(9, 2, 'androidTest.Testclass')
+data.setCell(9, 3, 15574);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'beforeTestSetup')
-data.setCell(10, 2, 'iOSTest.e2eTestiOS')
-data.setCell(10, 3, 2257);
+data.setCell(10, 1, 'startRecommendationAssessment')
+data.setCell(10, 2, 'androidTest.Testclass')
+data.setCell(10, 3, 14697);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'ValidateProcedureLog')
+data.setCell(11, 2, 'androidTest.Testclass')
+data.setCell(11, 3, 13515);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'LogSleep')
+data.setCell(12, 2, 'androidTest.Testclass')
+data.setCell(12, 3, 8823);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'deleteAccount')
+data.setCell(13, 2, 'androidTest.Testclass')
+data.setCell(13, 3, 8789);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'ValidateSymptomsLog')
+data.setCell(14, 2, 'androidTest.Testclass')
+data.setCell(14, 3, 8734);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'ValidateInitialAverageSleepValue')
+data.setCell(15, 2, 'androidTest.Testclass')
+data.setCell(15, 3, 8256);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'verifyBPLog')
+data.setCell(16, 2, 'androidTest.Testclass')
+data.setCell(16, 3, 6373);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'verifyInitialLatestBP')
+data.setCell(17, 2, 'androidTest.Testclass')
+data.setCell(17, 3, 5192);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'validateHeartRatelogged')
+data.setCell(18, 2, 'androidTest.Testclass')
+data.setCell(18, 3, 4023);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'ValidateAverageSleepTrackerFunctionality')
+data.setCell(19, 2, 'androidTest.Testclass')
+data.setCell(19, 3, 2930);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'VerifySleepLog')
+data.setCell(20, 2, 'androidTest.Testclass')
+data.setCell(20, 3, 2915);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'verifyLatestHeartrateLog')
+data.setCell(21, 2, 'androidTest.Testclass')
+data.setCell(21, 3, 1523);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'VerifyAverageBPChange')
+data.setCell(22, 2, 'androidTest.Testclass')
+data.setCell(22, 3, 946);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'verifyInitialHeartratevalue')
+data.setCell(23, 2, 'androidTest.Testclass')
+data.setCell(23, 3, 897);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -380,55 +657,113 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">iOSTest.e2eTestiOS</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">androidTest.Testclass</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">Setup</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">beforeTestSetup</span>
-                <span class="method-start">19559 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
                 <span class="method-name">signUp</span>
-                <span class="method-start">21819 ms</span>
+                <span class="method-start">9287 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">onboardingAssessment</span>
-                <span class="method-start">65810 ms</span>
+                <span class="method-name">completeOnboardingAssessment</span>
+                <span class="method-start">43941 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">addMedication</span>
-                <span class="method-start">110449 ms</span>
+                <span class="method-name">ValidateInitialAverageSleepValue</span>
+                <span class="method-start">77413 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">setDosage</span>
-                <span class="method-start">137946 ms</span>
+                <span class="method-name">LogSleep</span>
+                <span class="method-start">85671 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">logSymptoms</span>
-                <span class="method-start">184284 ms</span>
+                <span class="method-name">VerifySleepLog</span>
+                <span class="method-start">94499 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">ValidateAverageSleepTrackerFunctionality</span>
+                <span class="method-start">97417 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">logProcedure</span>
-                <span class="method-start">212985 ms</span>
+                <span class="method-start">100356 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">logHeartRate</span>
-                <span class="method-start">254700 ms</span>
+                <span class="method-name">ValidateProcedureLog</span>
+                <span class="method-start">125843 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">addMedication</span>
+                <span class="method-start">139365 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SetMedReminder</span>
+                <span class="method-start">161188 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">ValidateReminderSet</span>
+                <span class="method-start">187055 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">logSymptom</span>
+                <span class="method-start">202633 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">ValidateSymptomsLog</span>
+                <span class="method-start">224314 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyInitialLatestBP</span>
+                <span class="method-start">233052 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">logBP</span>
-                <span class="method-start">282183 ms</span>
+                <span class="method-start">238251 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">logSleep</span>
-                <span class="method-start">312260 ms</span>
+                <span class="method-name">verifyBPLog</span>
+                <span class="method-start">261554 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">VerifyAverageBPChange</span>
+                <span class="method-start">267934 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyInitialHeartratevalue</span>
+                <span class="method-start">268883 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">logNewHeartRate</span>
+                <span class="method-start">269783 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">validateHeartRatelogged</span>
+                <span class="method-start">287200 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyLatestHeartrateLog</span>
+                <span class="method-start">291228 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">startRecommendationAssessment</span>
+                <span class="method-start">292753 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">verifyRecommendation</span>
+                <span class="method-start">307454 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">deleteAccount</span>
-                <span class="method-start">342789 ms</span>
+                <span class="method-start">327619 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">QuitApp</span>
+                <span class="method-start">336422 ms</span>
+              </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

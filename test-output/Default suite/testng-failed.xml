@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="iOSTest.e2eTestiOS">
+      <class name="androidTest.Testclass">
         <methods>
+          <include name="verifyRecommendation"/>
+          <include name="QuitApp"/>
           <include name="Setup"/>
-          <include name="logBP"/>
-          <include name="deleteAccount"/>
         </methods>
-      </class> <!-- iOSTest.e2eTestiOS -->
+      </class> <!-- androidTest.Testclass -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
